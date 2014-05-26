@@ -678,12 +678,45 @@ Guess the y:1
 <div class='row-fluid'>
   <div class='span5'>
     <form id="knitForm27" data-cell="27">
-      <pre><code class="r">a &lt;- 1
-b &lt;- 3
-a + b
-</code></pre>
+      <pre><code class="r">little_game &lt;- function(num_guess = 5, cheat = F) {
+    ship_x &lt;- sample.int(5, size = 1)
+    ship_y &lt;- sample.int(5, size = 1)
+    if (cheat) {
+        print(ship_x)
+        print(ship_y)
+    }
+    map = list(c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, 
+        &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, 
+        &quot;O&quot;))
+    for (r in map) {
+        print(r)
+    }
+    tr &lt;- 0
+    while (tr &lt; num_guess) {
+        x &lt;- as.numeric(readline(&quot;Guess the x:&quot;))
+        y &lt;- as.numeric(readline(&quot;Guess the y:&quot;))
+        if (x &lt;= 5 &amp;&amp; y &lt;= 5 &amp;&amp; x &gt; 0 &amp;&amp; y &gt; 0) {
+            map[[y]][x] &lt;- &quot;X&quot;
+            for (r in map) {
+                print(r)
+            }
+            if (x == ship_x &amp; y == ship_y) {
+                cat(&quot;Oh NO~~~You shrink my boat!!&quot;)
+                break
+            } else {
+                cat(&quot;You miss.&quot;)
+                tr &lt;- tr + 1
+            }
+            if (tr &gt;= num_guess) {
+                cat(&quot;You loss.&quot;)
+            }
+        } else {
+            cat(&quot;Invalid x or y coordinate.&quot;)
+        }
+    }
 
-<p>[1] 4</p>
+}
+</code></pre>
 
       <div id='aceeditor27' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
