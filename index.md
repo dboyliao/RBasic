@@ -435,6 +435,9 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 3. 全部組合起來。
   
 
+---
+## apply 系列函數
+
 --- &interactive
 
 ## Interactive Mode
