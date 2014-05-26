@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Basic of R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The Basic of R">
+  <meta name="author" content="Taiwan R User Group">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/interactive/css/aceeditor.css"></link>
+<link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/middle.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/Taiwan-R-logo.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>The Basic of R</h1>
+    <h2>Amazing R</h2>
+    <p>Taiwan R User Group<br/>for R Hacker</p>
+  </hgroup>
+    <a href="https://github.com/DboyLiao/RBasic/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Table of Content</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <ul>
+<li>DATA: 一切的起源
+
+<ul>
+<li>資料屬性</li>
+<li>資料形態</li>
+</ul></li>
+<li>基礎運算
+
+<ul>
+<li>邏輯運算</li>
+<li>數值運算</li>
+<li>字串處理</li>
+</ul></li>
+<li>Loop
+
+<ul>
+<li>if/else</li>
+<li>for</li>
+<li>while</li>
+</ul></li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <ul>
+<li><p>Build-in funcions in R</p></li>
+<li><p>Define Your Own Function</p>
+
+<ul>
+<li>Syntex</li>
+<li>Something you will not do in R....But it is FUN!!</li>
+</ul></li>
+<li><p>apply系列函數</p>
+
+<ul>
+<li>apply</li>
+<li>lapply</li>
+<li>sapply</li>
+<li>tapply / split</li>
+</ul></li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Before We Start</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>It is good to have some handy commands at hand.</p>
+
+<ul>
+<li>rm() / ls()
+
+<ul>
+<li>rm(list = ls()): clear all objects in Global Enviroment.</li>
+</ul></li>
+<li>getwd() / setwd()</li>
+<li>memory.size() / memory.limit(): This is for <strong>Windows user only</strong>.</li>
+<li>? : The helper function.</li>
+<li>class()</li>
+<li>names()</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>DATA: 一切的起源</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <p>以資料屬性來分：</p>
+
+<ul>
+<li>Character (字串)</li>
+<li>Integer (整數)</li>
+<li>Numeric (雙浮點數 / 實數)</li>
+<li>Complex (複數)</li>
+<li>Logical (邏輯值)</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p>以資料形態來分：</p>
+
+<ul>
+<li>一般變數</li>
+<li>Vector</li>
+<li>Matrix</li>
+<li>Array</li>
+<li>Factor</li>
+<li>Data Frame</li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>基本賦值語法</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">(x &lt;- &quot;R is easy to learn!&quot;)
+(y &lt;- 3)
+(z &lt;- pi)
+</code></pre>
+
+<pre><code>## [1] &quot;R is easy to learn!&quot;
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<pre><code>## [1] 3.142
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Logical</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">bol1 &lt;- T
+bol2 &lt;- TRUE
+bol1 &amp; bol2
+</code></pre>
+
+<p>[1] TRUE</p>
+
+<h3>Funtime</h3>
+
+<pre><code class="r">mix_vec1 &lt;- c(&quot;a&quot;, 2)
+mix_vec2 &lt;- c(2, T)
+</code></pre>
+
+<p>猜看看結果會如何?</p>
+
+<p>(c()為 R 中建立向量的內建函式)</p>
+
+<ol class = "build incremental">
+<li>[1] &quot;a&quot; &quot;2&quot;</li>
+<li>[1] 2 1</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Vector</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Relating Methods (Vector)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>length(): 
+
+<ul>
+<li>語法: length(my_vect)</li>
+<li>傳回 my_vect 的長度</li>
+</ul></li>
+<li>+, -, *, /:
+
+<ul>
+<li>語法: <strong>my_vect + other_vect</strong></li>
+<li>注意: R 中所有運算皆向量化。(element by element operation)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Matrix and Array</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Factor</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Data Frame</h2>
+  </hgroup>
+  <article data-timings="">
+    <blockquote>
+<p>R 中有很多內建資料庫</p>
+
+<p>其中包括你不可以不知道的 iris 資料庫</p>
+
+<p>用法也很簡單，只要輸入以下指令：</p>
+</blockquote>
+
+<pre><code class="r">data(iris)
+</code></pre>
+
+<ol class = "build incremental">
+<li><p>可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。</p></li>
+<li><p>names(iris) 將可以看到 iris 所有欄位的名字。</p></li>
+<li><p>我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!</p></li>
+</ol>
+
+<pre><code> Species &lt;- iris[, &#39;Species&#39;]
+ class(Species)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Useful Function for Data Frame</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>給定一個名叫 data 的 data frame</p>
+
+<ul>
+<li><p>names(data): 傳回 data 的所有欄位名稱。</p></li>
+<li><p>nrow(data) / ncol(data): 傳回 data 的列 / 行數目。</p></li>
+<li><p>which(exp): Demo?</p></li>
+<li><p>sort</p></li>
+<li><p>max</p></li>
+<li><p>min</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>List</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Loop</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>if / else</h3>
+
+<p>Syntex:</p>
+
+<pre><code>if (condition_1){
+    #Do something here....
+} else if (conditon_2){
+    #Do something here
+} else {
+    #Do something here
+}
+</code></pre>
+
+<p>Note: <strong>else if</strong> and <strong>else</strong> are optional.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>User-Defined Function</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Syntex:</li>
+</ul>
+
+<pre><code class="r">my_function &lt;- function(arg1, arg2, ...) {
+    # do something here
+}
+</code></pre>
+
+<ul>
+<li>Scoping Rule
+
+<ul>
+<li>Local Variable</li>
+<li>Global Variable</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Mini-project 1: friend_info_update</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>User What We&#39;ve Learned to Build a Directory!
+
+<ul>
+<li>Builde a function called <strong>friend_info_update</strong>.</li>
+<li><strong>friend_info_update</strong> takes two arguments: <strong>name_list</strong> and <strong>info_list</strong>.</li>
+<li><strong>friend_info_update</strong> will update your friend&#39;s information according to 
+<strong>name_list</strong> and <strong>info_list</strong>.</li>
+<li><strong>friend_info_update</strong> will output one csv file named <strong>friend_info</strong></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Sample output:</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>name_list &lt;- list(&#39;Dboy&#39;, &#39;Boyo&#39;)
+info_D &lt;- c(phone = &#39;0912110266&#39;, address = &#39;Kindom Far Far Away&#39;,
+            email = &#39;qmalliao@farway.com&#39;, B_day= &#39;1987/03/29&#39;)
+info_B &lt;- c(phone = &#39;0911988987&#39;, address = &#39;Kindom Not So Far Away&#39;,
+            email = &#39;boyo@notfaraway.com&#39;, B_day= &#39;1988/02/13&#39;)
+info_list &lt;- list(info_D, info_B)
+friend_info_update(name_list, info_list)
+</code></pre>
+
+<p><img src="assets/img/friend_demo.png" class="fit100" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Mini project 2: little_game()</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>little_game()
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+Guess the x:1
+Guess the y:1
+[1] &quot;X&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot; &quot;O&quot;
+[1] &quot;You miss.&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Little Game: tips</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>接下來我們將一步步指導該如何造出這個 little_game()。</p>
+
+<ol>
+<li><p>定義一個 list 變數 map </p></li>
+<li><p>用一個 for 迴圈</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Interactive Mode</h2>
+  </hgroup>
+  <article data-timings="">
+     
+<div class='row-fluid'>
+  <div class='span5'>
+    <form id="knitForm19" data-cell="19">
+      <pre><code class="r">a &lt;- 1
+b &lt;- 3
+a + b
+</code></pre>
+
+<p>[1] 4</p>
+
+      <div id='aceeditor19' style="height:px;"></div>
+      <div class='interactive btn-toolbar pull-left'>
+        <div class='btn-group'>
+          <a class='btn btn-small action-button' id='runCode19' data-action='runCode'
+            data-cell='19' rel='tooltip' data-title='Run Code'>
+            <i class='icon-play'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='testCode19' data-action='testCode'
+             data-cell='19' rel='tooltip' data-title='Test Code'>
+            <i class='icon-check'></i>
+          </a>
+          <a class='btn btn-small iBtn' id='clearResult19' data-action='clearResult'
+             data-cell='19' rel='tooltip' data-title='Clear Output'>
+            <i class="icon-remove"></i>
+          </a>
+          <a class='btn  btn-small iBtn' id='getHint19' rel='tooltip' 
+            data-title="Get Hint" data-action='getHint'
+            data-cell='19' data-hint="">
+            <i class="icon-bookmark"></i>
+          </a>
+        </div>
+      </div>    </form>
+  </div>
+  <div class='span7'>
+    <div id="knitResult19" class='shiny-html-output'></div>
+  </div>
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Table of Content'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Before We Start'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='DATA: 一切的起源'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='基本賦值語法'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Logical'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Vector'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Relating Methods (Vector)'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Matrix and Array'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Factor'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Data Frame'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Useful Function for Data Frame'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='List'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Loop'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='User-Defined Function'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Mini-project 1: friend_info_update'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Sample output:'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Mini project 2: little_game()'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Little Game: tips'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Interactive Mode'>
+         19
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="libraries/widgets/interactive/js/ace/js/ace.js"></script>
+<script src="libraries/widgets/interactive/js/interactive.js"></script>
+
+  
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
