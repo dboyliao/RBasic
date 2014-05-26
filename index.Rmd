@@ -132,15 +132,14 @@ mix_vec2 <- c(2, T)
 
 ## Data Frame
 
-> R 中有很多內建資料庫
+- R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。
 
-> 其中包括你不可以不知道的 iris 資料庫
-
-> 用法也很簡單，只要輸入以下指令：
+- 用法也很簡單，只要輸入以下指令：
 
 ```{r, result = 'hide'}
 data(iris)
 ```
+
 
 1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
 
@@ -321,9 +320,91 @@ print(x)
 ## Little Game: tips
 接下來我們將一步步指導該如何造出這個 little_game()。
 
-1. 定義一個 list 變數 map 
+- 定義一個 list 變數 map 如下
+```{r, results = 'hide'} 
+    map =list(c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'))
+```
 
-2. 用一個 for 迴圈
+-  用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)
+
+- 定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
+
+- 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
+
+- 增加新功能: 如果玩家輸入的坐標有誤? 如果玩家炸到已經炸過的地點?
+
+---
+
+## littel_game() 成品範例
+
+    little_game <- function(num_guess = 5, cheat = F){
+            ship_x <- sample.int(5, size = 1)
+            ship_y <- sample.int(5, size = 1)
+            if (cheat){
+                    print(ship_x)
+                    print(ship_y)
+            }
+            map =list(c('O', 'O', 'O', 'O', 'O'),
+                      c('O', 'O', 'O', 'O', 'O'),
+                      c('O', 'O', 'O', 'O', 'O'),
+                      c('O', 'O', 'O', 'O', 'O'),
+                      c('O', 'O', 'O', 'O', 'O'))
+            for (r in map){
+                    print(r)
+            }
+            tr <- 0
+
+---
+
+## littel_game() 成品範例 (續)
+
+        while (tr < num_guess){
+                    x <- as.numeric(readline('Guess the x:'))
+                    y <- as.numeric(readline('Guess the y:'))
+                    if (x <= 5 && y <= 5 && x > 0 && y > 0){ 
+                            map[[y]][x] <- 'X'
+                            for (r in map){
+                                    print(r)
+                            }
+                            if (x == ship_x & y == ship_y){
+                                    cat('Oh NO~~~You shrink my boat!!')
+                                    break
+                            } else{
+                                    cat('You miss.')
+                                    tr <- tr + 1
+                            }
+
+---
+
+## littel_game() 成品範例 (續)
+
+                            if (tr >= num_guess){
+                                    cat('You loss.')
+                            }
+                    } else {
+                            cat('Invalid x or y coordinate.')
+                    }
+            }
+        
+    }
+
+---
+
+## little_game() mini-project 後小檢討
+
+1. 在開始 coding 之前，最好先用一張小紙條寫好: 我要做什麼?
+
+2. 把大問題拆成小問題逐一解決，再組合起來。
+  1. 以 little_game() 來說，它可以先被分解成兩個迴圈。一個 for 迴圈用來於螢幕顯示初始 map 長什麼樣子，一個 while 迴圈用以判斷遊戲是否繼續。
+  
+  2. 而 while 迴圈又可以進一步分解成兩個部分。第一部分用以於螢幕顯示現在的 map 長什麼樣子，第二部分則會根據玩家輸入的坐標更新 map ，並於螢幕顯示適當訊息。
+  
+3. 全部組合起來。
+  
 
 --- &interactive
 

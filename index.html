@@ -279,13 +279,10 @@ mix_vec2 &lt;- c(2, T)
     <h2>Data Frame</h2>
   </hgroup>
   <article data-timings="">
-    <blockquote>
-<p>R 中有很多內建資料庫</p>
-
-<p>其中包括你不可以不知道的 iris 資料庫</p>
-
-<p>用法也很簡單，只要輸入以下指令：</p>
-</blockquote>
+    <ul>
+<li><p>R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。</p></li>
+<li><p>用法也很簡單，只要輸入以下指令：</p></li>
+</ul>
 
 <pre><code class="r">data(iris)
 </code></pre>
@@ -548,10 +545,20 @@ Guess the y:1
   <article data-timings="">
     <p>接下來我們將一步步指導該如何造出這個 little_game()。</p>
 
-<ol>
-<li><p>定義一個 list 變數 map </p></li>
-<li><p>用一個 for 迴圈</p></li>
-</ol>
+<ul>
+<li>定義一個 list 變數 map 如下</li>
+</ul>
+
+<pre><code class="r">map = list(c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, 
+    &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;), c(&quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;, &quot;O&quot;))
+</code></pre>
+
+<ul>
+<li><p>用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)</p></li>
+<li><p>定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)</p></li>
+<li><p>用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。</p></li>
+<li><p>增加新功能: 如果玩家輸入的坐標有誤? 如果玩家炸到已經炸過的地點?</p></li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -559,13 +566,106 @@ Guess the y:1
 
 <slide class="" id="slide-22" style="background:;">
   <hgroup>
+    <h2>littel_game() 成品範例</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>little_game &lt;- function(num_guess = 5, cheat = F){
+        ship_x &lt;- sample.int(5, size = 1)
+        ship_y &lt;- sample.int(5, size = 1)
+        if (cheat){
+                print(ship_x)
+                print(ship_y)
+        }
+        map =list(c(&#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;),
+                  c(&#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;),
+                  c(&#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;),
+                  c(&#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;),
+                  c(&#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;, &#39;O&#39;))
+        for (r in map){
+                print(r)
+        }
+        tr &lt;- 0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>littel_game() 成品範例 (續)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>    while (tr &lt; num_guess){
+                x &lt;- as.numeric(readline(&#39;Guess the x:&#39;))
+                y &lt;- as.numeric(readline(&#39;Guess the y:&#39;))
+                if (x &lt;= 5 &amp;&amp; y &lt;= 5 &amp;&amp; x &gt; 0 &amp;&amp; y &gt; 0){ 
+                        map[[y]][x] &lt;- &#39;X&#39;
+                        for (r in map){
+                                print(r)
+                        }
+                        if (x == ship_x &amp; y == ship_y){
+                                cat(&#39;Oh NO~~~You shrink my boat!!&#39;)
+                                break
+                        } else{
+                                cat(&#39;You miss.&#39;)
+                                tr &lt;- tr + 1
+                        }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>littel_game() 成品範例 (續)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>                        if (tr &gt;= num_guess){
+                                cat(&#39;You loss.&#39;)
+                        }
+                } else {
+                        cat(&#39;Invalid x or y coordinate.&#39;)
+                }
+        }
+
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>little_game() mini-project 後小檢討</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>在開始 coding 之前，最好先用一張小紙條寫好: 我要做什麼?</p></li>
+<li><p>把大問題拆成小問題逐一解決，再組合起來。</p>
+
+<ol>
+<li>以 little_game() 來說，它可以先被分解成兩個迴圈。一個 for 迴圈用來於螢幕顯示初始 map 長什麼樣子，一個 while 迴圈用以判斷遊戲是否繼續。</li>
+<li>而 while 迴圈又可以進一步分解成兩個部分。第一部分用以於螢幕顯示現在的 map 長什麼樣子，第二部分則會根據玩家輸入的坐標更新 map ，並於螢幕顯示適當訊息。</li>
+</ol></li>
+<li><p>全部組合起來。</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
     <h2>Interactive Mode</h2>
   </hgroup>
   <article data-timings="">
      
 <div class='row-fluid'>
   <div class='span5'>
-    <form id="knitForm22" data-cell="22">
+    <form id="knitForm26" data-cell="26">
       <pre><code class="r">a &lt;- 1
 b &lt;- 3
 a + b
@@ -573,31 +673,31 @@ a + b
 
 <p>[1] 4</p>
 
-      <div id='aceeditor22' style="height:px;"></div>
+      <div id='aceeditor26' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
         <div class='btn-group'>
-          <a class='btn btn-small action-button' id='runCode22' data-action='runCode'
-            data-cell='22' rel='tooltip' data-title='Run Code'>
+          <a class='btn btn-small action-button' id='runCode26' data-action='runCode'
+            data-cell='26' rel='tooltip' data-title='Run Code'>
             <i class='icon-play'></i>
           </a>
-          <a class='btn btn-small iBtn' id='testCode22' data-action='testCode'
-             data-cell='22' rel='tooltip' data-title='Test Code'>
+          <a class='btn btn-small iBtn' id='testCode26' data-action='testCode'
+             data-cell='26' rel='tooltip' data-title='Test Code'>
             <i class='icon-check'></i>
           </a>
-          <a class='btn btn-small iBtn' id='clearResult22' data-action='clearResult'
-             data-cell='22' rel='tooltip' data-title='Clear Output'>
+          <a class='btn btn-small iBtn' id='clearResult26' data-action='clearResult'
+             data-cell='26' rel='tooltip' data-title='Clear Output'>
             <i class="icon-remove"></i>
           </a>
-          <a class='btn  btn-small iBtn' id='getHint22' rel='tooltip' 
+          <a class='btn  btn-small iBtn' id='getHint26' rel='tooltip' 
             data-title="Get Hint" data-action='getHint'
-            data-cell='22' data-hint="">
+            data-cell='26' data-hint="">
             <i class="icon-bookmark"></i>
           </a>
         </div>
       </div>    </form>
   </div>
   <div class='span7'>
-    <div id="knitResult22" class='shiny-html-output'></div>
+    <div id="knitResult26" class='shiny-html-output'></div>
   </div>
 </div>
   </article>
@@ -736,8 +836,32 @@ a + b
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Interactive Mode'>
+        data-slide=22 title='littel_game() 成品範例'>
          22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='littel_game() 成品範例 (續)'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='littel_game() 成品範例 (續)'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='little_game() mini-project 後小檢討'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Interactive Mode'>
+         26
       </a>
     </li>
   </ul>
