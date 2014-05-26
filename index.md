@@ -130,6 +130,33 @@ mix_vec2 <- c(2, T)
 
 ## Vector
 
+- c(): concatenation function
+
+- 範例：
+
+
+```r
+vec1 <- c(1, 2, 3)
+vec2 <- c("a", "b", "c")
+```
+
+
+- vector 中所有元素都必須是同一種資料屬性。
+
+- Named Vector:
+
+
+```r
+Bob <- c(age = 27, height = 187, weight = 80)
+Bob
+```
+
+```
+##    age height weight 
+##     27    187     80
+```
+
+
 ---
 
 ## Relating Methods (Vector)
@@ -147,6 +174,8 @@ mix_vec2 <- c(2, T)
 ---
 
 ## Factor
+
+
 
 ---
 
@@ -212,6 +241,12 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
 - 比較：
  - list(1, '2')
  - list(1, T)
+
+---
+
+## Play With List
+
+
 
 ---
 
@@ -447,10 +482,7 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 --- &interactive
 
 ## Interactive Mode
-
-```r
-source("./little_game.R")
-```
+<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>source('./little_game.R')</textarea>
 
 
 
