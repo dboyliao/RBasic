@@ -164,14 +164,20 @@ data(iris)
 ```
 
 
-> 1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
+1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
 
-> 2. names(iris) 將可以看到 iris 所有欄位的名字。
+2. names(iris) 將可以看到 iris 所有欄位的名字。
 
-> 3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
+3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
 
-     Species <- iris[, 'Species']
-     class(Species)
+
+```r
+Species <- iris[, "Species"]
+class(Species)  # R 會告訴你他是個 factor。
+Species2 <- as.numeric(Species)
+print(Species2)  # 直接把 factor 轉成 numeric 向量。
+```
+
 
 ---
 
@@ -196,6 +202,18 @@ data(iris)
 
 ## List
 
+- list 是非常方便好用的資料形態。尤其是需儲存不同類型資料的時候，特別好用。
+
+- Vector, Matrix, Data Frame and List.
+
+- 還記得剛剛提過的優先順序嗎？
+ - c(1, '2')
+ - c(1, T)
+
+- 比較：
+ - list(1, '2')
+ - list(1, T)
+
 ---
 ## Loop
 ### if / else
@@ -213,6 +231,42 @@ Syntex:
 
 Note: **else if** and **else** are optional.
 
+--- 
+
+## Coding Style for Loop
+
+以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。
+
+
+```r
+value <- 5
+if (value > 4) {
+    print("The value is greater than 4")
+} else if (2 < value & value <= 4) {
+    print("The value is greater than 2 and no greater than 4.")
+} else {
+    print("The value is no greater than 2.")
+}
+```
+
+
+---
+
+## Coding Style for Loop (Cont.)
+
+    {
+            if (value > 4)
+                    print('The value is greater than 4')
+            else if (2 < value & value <= 4)
+                    print('The value is greater than 2 and no greater than 4.')
+            else
+                    print('The value is no greater than 2.')
+    }
+
+> 1. 當然，如果你是 Python 的重度愛好者，要寫成這樣我也不反對啦~(攤手)
+> 2. 我自己是覺得第一種比較好看!(自以為狀態啟動)
+> 3. 特別注意到的是，如果把 { } 去掉，程式會出錯喔!(不一定不能跑，但有可能是錯的)
+
 ---
 
 ## User-Defined Function
@@ -228,6 +282,25 @@ my_function <- function(arg1, arg2, ...) {
  - Local Variable
  - Global Variable
 
+---
+
+## Global v.s. Local
+
+- Example:
+
+
+```r
+x <- 5
+my_fun <- function() {
+    x <- 6
+    return(x + 1)
+}
+my_fun()
+print(x)
+```
+
+
+- 大家來 Try Try See 吧!
 
 ---
 

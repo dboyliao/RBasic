@@ -290,14 +290,16 @@ mix_vec2 &lt;- c(2, T)
 <pre><code class="r">data(iris)
 </code></pre>
 
-<ol class = "build incremental">
+<ol>
 <li><p>可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。</p></li>
 <li><p>names(iris) 將可以看到 iris 所有欄位的名字。</p></li>
 <li><p>我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!</p></li>
 </ol>
 
-<pre><code> Species &lt;- iris[, &#39;Species&#39;]
- class(Species)
+<pre><code class="r">Species &lt;- iris[, &quot;Species&quot;]
+class(Species)  # R 會告訴你他是個 factor。
+Species2 &lt;- as.numeric(Species)
+print(Species2)  # 直接把 factor 轉成 numeric 向量。
 </code></pre>
 
   </article>
@@ -329,7 +331,23 @@ mix_vec2 &lt;- c(2, T)
     <h2>List</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li><p>list 是非常方便好用的資料形態。尤其是需儲存不同類型資料的時候，特別好用。</p></li>
+<li><p>Vector, Matrix, Data Frame and List.</p></li>
+<li><p>還記得剛剛提過的優先順序嗎？</p>
+
+<ul>
+<li>c(1, &#39;2&#39;)</li>
+<li>c(1, T)</li>
+</ul></li>
+<li><p>比較：</p>
+
+<ul>
+<li>list(1, &#39;2&#39;)</li>
+<li>list(1, T)</li>
+</ul></li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -360,6 +378,52 @@ mix_vec2 &lt;- c(2, T)
 
 <slide class="" id="slide-14" style="background:;">
   <hgroup>
+    <h2>Coding Style for Loop</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。</p>
+
+<pre><code class="r">value &lt;- 5
+if (value &gt; 4) {
+    print(&quot;The value is greater than 4&quot;)
+} else if (2 &lt; value &amp; value &lt;= 4) {
+    print(&quot;The value is greater than 2 and no greater than 4.&quot;)
+} else {
+    print(&quot;The value is no greater than 2.&quot;)
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Coding Style for Loop (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>{
+        if (value &gt; 4)
+                print(&#39;The value is greater than 4&#39;)
+        else if (2 &lt; value &amp; value &lt;= 4)
+                print(&#39;The value is greater than 2 and no greater than 4.&#39;)
+        else
+                print(&#39;The value is no greater than 2.&#39;)
+}
+</code></pre>
+
+<ol class = "build incremental">
+<li>當然，如果你是 Python 的重度愛好者，要寫成這樣我也不反對啦~(攤手)</li>
+<li>我自己是覺得第一種比較好看!(自以為狀態啟動)</li>
+<li>特別注意到的是，如果把 { } 去掉，程式會出錯喔!(不一定不能跑，但有可能是錯的)</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
     <h2>User-Defined Function</h2>
   </hgroup>
   <article data-timings="">
@@ -385,7 +449,33 @@ mix_vec2 &lt;- c(2, T)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Global v.s. Local</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Example:</li>
+</ul>
+
+<pre><code class="r">x &lt;- 5
+my_fun &lt;- function() {
+    x &lt;- 6
+    return(x + 1)
+}
+my_fun()
+print(x)
+</code></pre>
+
+<ul>
+<li>大家來 Try Try See 吧!</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Mini-project 1: friend_info_update</h2>
   </hgroup>
@@ -406,7 +496,7 @@ mix_vec2 &lt;- c(2, T)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Sample output:</h2>
   </hgroup>
@@ -426,7 +516,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Mini project 2: little_game()</h2>
   </hgroup>
@@ -451,7 +541,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Little Game: tips</h2>
   </hgroup>
@@ -467,7 +557,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Interactive Mode</h2>
   </hgroup>
@@ -475,7 +565,7 @@ Guess the y:1
      
 <div class='row-fluid'>
   <div class='span5'>
-    <form id="knitForm19" data-cell="19">
+    <form id="knitForm22" data-cell="22">
       <pre><code class="r">a &lt;- 1
 b &lt;- 3
 a + b
@@ -483,31 +573,31 @@ a + b
 
 <p>[1] 4</p>
 
-      <div id='aceeditor19' style="height:px;"></div>
+      <div id='aceeditor22' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
         <div class='btn-group'>
-          <a class='btn btn-small action-button' id='runCode19' data-action='runCode'
-            data-cell='19' rel='tooltip' data-title='Run Code'>
+          <a class='btn btn-small action-button' id='runCode22' data-action='runCode'
+            data-cell='22' rel='tooltip' data-title='Run Code'>
             <i class='icon-play'></i>
           </a>
-          <a class='btn btn-small iBtn' id='testCode19' data-action='testCode'
-             data-cell='19' rel='tooltip' data-title='Test Code'>
+          <a class='btn btn-small iBtn' id='testCode22' data-action='testCode'
+             data-cell='22' rel='tooltip' data-title='Test Code'>
             <i class='icon-check'></i>
           </a>
-          <a class='btn btn-small iBtn' id='clearResult19' data-action='clearResult'
-             data-cell='19' rel='tooltip' data-title='Clear Output'>
+          <a class='btn btn-small iBtn' id='clearResult22' data-action='clearResult'
+             data-cell='22' rel='tooltip' data-title='Clear Output'>
             <i class="icon-remove"></i>
           </a>
-          <a class='btn  btn-small iBtn' id='getHint19' rel='tooltip' 
+          <a class='btn  btn-small iBtn' id='getHint22' rel='tooltip' 
             data-title="Get Hint" data-action='getHint'
-            data-cell='19' data-hint="">
+            data-cell='22' data-hint="">
             <i class="icon-bookmark"></i>
           </a>
         </div>
       </div>    </form>
   </div>
   <div class='span7'>
-    <div id="knitResult19" class='shiny-html-output'></div>
+    <div id="knitResult22" class='shiny-html-output'></div>
   </div>
 </div>
   </article>
@@ -598,38 +688,56 @@ a + b
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='User-Defined Function'>
+        data-slide=14 title='Coding Style for Loop'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Mini-project 1: friend_info_update'>
+        data-slide=15 title='Coding Style for Loop (Cont.)'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Sample output:'>
+        data-slide=16 title='User-Defined Function'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Mini project 2: little_game()'>
+        data-slide=17 title='Global v.s. Local'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Little Game: tips'>
+        data-slide=18 title='Mini-project 1: friend_info_update'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Interactive Mode'>
+        data-slide=19 title='Sample output:'>
          19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Mini project 2: little_game()'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Little Game: tips'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Interactive Mode'>
+         22
       </a>
     </li>
   </ul>
