@@ -214,10 +214,11 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
  - list(1, T)
 
 ---
+
 ## Loop
+
 ### if / else
 Syntex:
-
 
     if (condition_1){
         #Do something here....
@@ -253,6 +254,7 @@ if (value > 4) {
 
 ## Coding Style for Loop (Cont.)
 
+    value <- 5
     {
             if (value > 4)
                     print('The value is greater than 4')
@@ -447,44 +449,7 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 ## Interactive Mode
 
 ```r
-little_game <- function(num_guess = 5, cheat = F) {
-    ship_x <- sample.int(5, size = 1)
-    ship_y <- sample.int(5, size = 1)
-    if (cheat) {
-        print(ship_x)
-        print(ship_y)
-    }
-    map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", 
-        "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", 
-        "O"))
-    for (r in map) {
-        print(r)
-    }
-    tr <- 0
-    while (tr < num_guess) {
-        x <- as.numeric(readline("Guess the x:"))
-        y <- as.numeric(readline("Guess the y:"))
-        if (x <= 5 && y <= 5 && x > 0 && y > 0) {
-            map[[y]][x] <- "X"
-            for (r in map) {
-                print(r)
-            }
-            if (x == ship_x & y == ship_y) {
-                cat("Oh NO~~~You shrink my boat!!")
-                break
-            } else {
-                cat("You miss.")
-                tr <- tr + 1
-            }
-            if (tr >= num_guess) {
-                cat("You loss.")
-            }
-        } else {
-            cat("Invalid x or y coordinate.")
-        }
-    }
-    
-}
+source("./little_game.R")
 ```
 
 
