@@ -112,7 +112,7 @@ bol1 & bol2
 [1] TRUE
 
 
-### Funtime
+### **Funtime**
 
 ```r
 mix_vec1 <- c("a", 2)
@@ -161,11 +161,42 @@ Bob
 
 ## Relating Methods (Vector)
 - length(): 
-  - 語法: length(my_vect)
+  - 語法: **length(my_vec)**
   - 傳回 my_vect 的長度
 - +, -, *, /:
-  - 語法: **my_vect + other_vect**
+  - 語法: **my_vec + other_vec**
   - 注意: R 中所有運算皆向量化。(element by element operation)
+- names():
+ - 語法: **names(my_vec)**
+ - 傳回 my_vec 各維度的名字。
+- []:
+ - 語法: **my_vec[index]**
+ - 傳回 my_vec 的第 index 個元素。
+
+
+---
+
+## Examples
+
+
+```r
+named_vec <- c(age = 27, weight = 80)
+vec1 <- c(1, 2, 3)
+vec2 <- c(4, 5, 6)
+vec1 + vec2
+vec1 - vec2
+vec1 * vec2
+names(named_vec)
+vec1[1] + vec2[3]
+```
+
+
+> 1. [1] 5 7 9
+> 2. [1] -3 -3 -3
+> 3. [1]  4 10 18
+> 4. [1] "age" "weight"
+> 5. [1] 7
+
 
 ---
 
@@ -245,6 +276,24 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
 ---
 
 ## Play With List
+
+
+```r
+map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", 
+    "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"))
+for (i in 1:length(map)) {
+    print(map[[i]])
+}
+```
+
+```
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+```
+
 
 
 
@@ -482,7 +531,10 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 --- &interactive
 
 ## Interactive Mode
-<textarea class='interactive' id='interactive{{slide.num}}' data-cell='{{slide.num}}' data-results='asis' style='display:none'>source('./little_game.R')</textarea>
+
+```r
+source("./little_game.R")
+```
 
 
 
