@@ -229,7 +229,7 @@ vec1[1] + vec2[3]
 
 ## Barnsley Fern 碎形
 
-<img src="assets/img/Barnsley_Fern.png" height="83%" width="83%" />
+<img src="assets/img/Barnsley_Fern.png" height="80%" width="80%" />
 
 ---
 
