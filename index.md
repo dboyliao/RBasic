@@ -20,14 +20,14 @@ github:
 - DATA: 一切的起源
   - 資料屬性
   - 資料形態
-- 基礎運算
-  - 邏輯運算
-  - 數值運算
-  - 字串處理
 - Loop
   - if/else
   - for
   - while
+- 基礎運算
+  - 邏輯運算
+  - 數值運算
+  - 字串處理
 
 *** =right
 - Build-in funcions in R
@@ -128,6 +128,62 @@ mix_vec2 <- c(2, T)
 
 ---
 
+## Loop
+
+### if / else
+Syntex:
+
+    if (condition_1){
+        #Do something here....
+    } else if (conditon_2){
+        #Do something here
+    } else {
+        #Do something here
+    }
+
+
+Note: **else if** and **else** are optional.
+
+--- 
+
+## Coding Style for Loop
+
+以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。
+
+
+```r
+value <- 5
+if (value > 4) {
+    print("The value is greater than 4")
+} else if (2 < value & value <= 4) {
+    print("The value is greater than 2 and no greater than 4.")
+} else {
+    print("The value is no greater than 2.")
+}
+```
+
+
+---
+
+## Coding Style for Loop (Cont.)
+
+    value <- 5
+    {
+            if (value > 4)
+                    print('The value is greater than 4')
+            else if (2 < value & value <= 4)
+                    print('The value is greater than 2 and no greater than 4.')
+            else
+                    print('The value is no greater than 2.')
+    }
+
+> 1. 當然，如果你是 Python 的重度愛好者，要寫成這樣我也不反對啦~(攤手)
+> 2. 我自己是覺得第一種比較好看!(自以為狀態啟動)
+> 3. 特別注意到的是，如果把 { } 去掉，程式會出錯喔!(不一定不能跑，但有可能是錯的)
+
+
+---
+
 ## Vector
 
 - c(): concatenation function
@@ -201,6 +257,12 @@ vec1[1] + vec2[3]
 ---
 
 ## Matrix and Array
+
+---
+
+## Barnsley Fern 碎形
+
+<img src="assets/img/Barnsley_Fern.png" height="80%" width="80%" />
 
 ---
 
@@ -295,62 +357,6 @@ for (i in 1:length(map)) {
 ```
 
 
-
-
----
-
-## Loop
-
-### if / else
-Syntex:
-
-    if (condition_1){
-        #Do something here....
-    } else if (conditon_2){
-        #Do something here
-    } else {
-        #Do something here
-    }
-
-
-Note: **else if** and **else** are optional.
-
---- 
-
-## Coding Style for Loop
-
-以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。
-
-
-```r
-value <- 5
-if (value > 4) {
-    print("The value is greater than 4")
-} else if (2 < value & value <= 4) {
-    print("The value is greater than 2 and no greater than 4.")
-} else {
-    print("The value is no greater than 2.")
-}
-```
-
-
----
-
-## Coding Style for Loop (Cont.)
-
-    value <- 5
-    {
-            if (value > 4)
-                    print('The value is greater than 4')
-            else if (2 < value & value <= 4)
-                    print('The value is greater than 2 and no greater than 4.')
-            else
-                    print('The value is no greater than 2.')
-    }
-
-> 1. 當然，如果你是 Python 的重度愛好者，要寫成這樣我也不反對啦~(攤手)
-> 2. 我自己是覺得第一種比較好看!(自以為狀態啟動)
-> 3. 特別注意到的是，如果把 { } 去掉，程式會出錯喔!(不一定不能跑，但有可能是錯的)
 
 ---
 

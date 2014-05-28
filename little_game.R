@@ -39,4 +39,4 @@ little_game <- function(num_guess = 5, cheat = F){
         
 }
 
-#little_game(cheat=T, 10)
+#little_game(cheat = F, 10)
