@@ -387,26 +387,178 @@ vec1[1] + vec2[3]
 
 <slide class="" id="slide-12" style="background:;">
   <hgroup>
-    <h2>Matrix and Array</h2>
+    <h2>Matrix</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li>語法: <strong>matrix(elements, norw, ncol, by.row = T)</strong></li>
+<li>例子: </li>
+</ul>
+
+<pre><code class="r">My_matrix1 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
+My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2)
+My_matrix1
+My_matrix2
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-13" style="background:;">
   <hgroup>
-    <h2>Barnsley Fern 碎形</h2>
+    <h2>Basic Operation of Matrix</h2>
   </hgroup>
   <article data-timings="">
-    <p><img src="assets/img/Barnsley_Fern.png" height="80%" width="80%" /></p>
+    <ul>
+<li><strong>+, -, *, /</strong></li>
+<li>例子:</li>
+</ul>
+
+<pre><code class="r">My_matrix1 + My_matrix2
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    2    5
+## [2,]    5    8
+</code></pre>
+
+<pre><code class="r">My_matrix1 * My_matrix2
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    6
+## [2,]    6   16
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Basic Operation of Matrix (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong>%*%</strong>: Matrix Mulplication</li>
+<li><strong>t()</strong>: Transpose</li>
+<li>例子:</li>
+</ul>
+
+<pre><code class="r">my_vec &lt;- matrix(c(1, 2), ncol = 1)  ## 為什麼不用c()?
+My_matrix1 %*% my_vec
+</code></pre>
+
+<pre><code>##      [,1]
+## [1,]    5
+## [2,]   11
+</code></pre>
+
+<pre><code class="r">My_matrix1 %*% t(my_vec)
+</code></pre>
+
+<pre><code>## Error: 非調和引數
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Fun Time!!</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Barnsley Fern 碎形</h3>
+
+<ul>
+<li><p>起始點: (0, 0)</p></li>
+<li><p>With 1% probability:
+<img src="assets/img/Barnsley_Fern_1.png" height="20%" width="20%"/></p></li>
+<li><p>With 85% probability:
+<img src="assets/img/Barnsley_Fern_2.png" height="30%" width="30%"/></p></li>
+<li><p>With 7% probability:
+<img src="assets/img/Barnsley_Fern_3.png" height="30%" width="30%"/></p></li>
+<li><p>With 7% probability:
+<img src="assets/img/Barnsley_Fern_4.png" height="30%" width="30%"/></p></li>
+<li><p>依此規則迭代出 10000 點，再把這些點畫成圖。</p></li>
+<li><p>只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern 碎形</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>你應該會看到:</p>
+
+<p><img src="assets/img/Barnsley_Fern.png" height="75%" width="75%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern 碎形程式範例</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>iter = 10000
+p = runif(iter)
+coord = matrix(c(0, 0), ncol = 1)
+df = rbind(data.frame(), t(coord))
+for (i in 1:iter) {
+        if (p[i] &lt;= 0.05) {
+                m = matrix(c(0, 0, 0, 0.16), nrow = 2, ncol = 2)
+                const = matrix(c(0, 0), ncol = 1)
+        } else if (p[i] &gt; 0.05 &amp;&amp; p[i] &lt;= 0.86) {
+                m = matrix(c(0.85, -0.04, 0.04, 0.85), nrow = 2, ncol = 2)
+                const = matrix(c(0, 1.6), ncol = 1)
+        } else if (p[i] &gt; 0.86 &amp;&amp; p[i] &lt;= 0.93) {
+                m = matrix(c(0.2, 0.23, -0.26, 0.22), nrow = 2, ncol = 2)
+                const = matrix(c(0, 1.6), ncol = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern 碎形程式範例 (續)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>        } else {
+                m = matrix(c(-0.15, 0.26, 0.28, 0.24), nrow = 2, ncol = 2)
+                const = matrix(c(0, 0.44), ncol = 1)
+        }
+        coord = m %*% coord + const
+        df = rbind(df, t(coord))
+}
+
+plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Factor</h2>
   </hgroup>
@@ -416,7 +568,7 @@ vec1[1] + vec2[3]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Data Frame</h2>
   </hgroup>
@@ -445,7 +597,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Useful Function for Data Frame</h2>
   </hgroup>
@@ -465,7 +617,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>List</h2>
   </hgroup>
@@ -491,7 +643,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Play With List</h2>
   </hgroup>
@@ -514,7 +666,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>User-Defined Function</h2>
   </hgroup>
@@ -541,7 +693,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Global v.s. Local</h2>
   </hgroup>
@@ -567,7 +719,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Mini-project 1: friend_info_update</h2>
   </hgroup>
@@ -588,7 +740,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Sample output:</h2>
   </hgroup>
@@ -608,7 +760,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Mini project 2: little_game()</h2>
   </hgroup>
@@ -633,7 +785,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Little Game: tips</h2>
   </hgroup>
@@ -659,7 +811,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例</h2>
   </hgroup>
@@ -686,7 +838,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -712,7 +864,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -732,7 +884,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>little_game() mini-project 後小檢討</h2>
   </hgroup>
@@ -754,7 +906,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>apply 系列函數</h2>
   </hgroup>
@@ -764,7 +916,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Interactive Mode</h2>
   </hgroup>
@@ -772,35 +924,35 @@ Guess the y:1
      
 <div class='row-fluid'>
   <div class='span5'>
-    <form id="knitForm30" data-cell="30">
+    <form id="knitForm35" data-cell="35">
       <pre><code class="r">source(&quot;./little_game.R&quot;)
 </code></pre>
 
-      <div id='aceeditor30' style="height:px;"></div>
+      <div id='aceeditor35' style="height:px;"></div>
       <div class='interactive btn-toolbar pull-left'>
         <div class='btn-group'>
-          <a class='btn btn-small action-button' id='runCode30' data-action='runCode'
-            data-cell='30' rel='tooltip' data-title='Run Code'>
+          <a class='btn btn-small action-button' id='runCode35' data-action='runCode'
+            data-cell='35' rel='tooltip' data-title='Run Code'>
             <i class='icon-play'></i>
           </a>
-          <a class='btn btn-small iBtn' id='testCode30' data-action='testCode'
-             data-cell='30' rel='tooltip' data-title='Test Code'>
+          <a class='btn btn-small iBtn' id='testCode35' data-action='testCode'
+             data-cell='35' rel='tooltip' data-title='Test Code'>
             <i class='icon-check'></i>
           </a>
-          <a class='btn btn-small iBtn' id='clearResult30' data-action='clearResult'
-             data-cell='30' rel='tooltip' data-title='Clear Output'>
+          <a class='btn btn-small iBtn' id='clearResult35' data-action='clearResult'
+             data-cell='35' rel='tooltip' data-title='Clear Output'>
             <i class="icon-remove"></i>
           </a>
-          <a class='btn  btn-small iBtn' id='getHint30' rel='tooltip' 
+          <a class='btn  btn-small iBtn' id='getHint35' rel='tooltip' 
             data-title="Get Hint" data-action='getHint'
-            data-cell='30' data-hint="">
+            data-cell='35' data-hint="">
             <i class="icon-bookmark"></i>
           </a>
         </div>
       </div>    </form>
   </div>
   <div class='span7'>
-    <div id="knitResult30" class='shiny-html-output'></div>
+    <div id="knitResult35" class='shiny-html-output'></div>
   </div>
 </div>
   </article>
@@ -879,116 +1031,146 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Matrix and Array'>
+        data-slide=12 title='Matrix'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Barnsley Fern 碎形'>
+        data-slide=13 title='Basic Operation of Matrix'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Factor'>
+        data-slide=14 title='Basic Operation of Matrix (Cont.)'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Data Frame'>
+        data-slide=15 title='Fun Time!!'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Useful Function for Data Frame'>
+        data-slide=16 title='Barnsley Fern 碎形'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='List'>
+        data-slide=17 title='Barnsley Fern 碎形程式範例'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Play With List'>
+        data-slide=18 title='Barnsley Fern 碎形程式範例 (續)'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='User-Defined Function'>
+        data-slide=19 title='Factor'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Global v.s. Local'>
+        data-slide=20 title='Data Frame'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Mini-project 1: friend_info_update'>
+        data-slide=21 title='Useful Function for Data Frame'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Sample output:'>
+        data-slide=22 title='List'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Mini project 2: little_game()'>
+        data-slide=23 title='Play With List'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Little Game: tips'>
+        data-slide=24 title='User-Defined Function'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='littel_game() 成品範例'>
+        data-slide=25 title='Global v.s. Local'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='littel_game() 成品範例 (續)'>
+        data-slide=26 title='Mini-project 1: friend_info_update'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='littel_game() 成品範例 (續)'>
+        data-slide=27 title='Sample output:'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='little_game() mini-project 後小檢討'>
+        data-slide=28 title='Mini project 2: little_game()'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='apply 系列函數'>
+        data-slide=29 title='Little Game: tips'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Interactive Mode'>
+        data-slide=30 title='littel_game() 成品範例'>
          30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='littel_game() 成品範例 (續)'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='littel_game() 成品範例 (續)'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='little_game() mini-project 後小檢討'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='apply 系列函數'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Interactive Mode'>
+         35
       </a>
     </li>
   </ul>

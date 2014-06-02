@@ -223,13 +223,108 @@ vec1[1] + vec2[3]
 
 ---
 
-## Matrix and Array
+## Matrix
+
+- 語法: **matrix(elements, norw, ncol, by.row = T)**
+- 例子: 
+```{r, results = 'hold'}
+My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
+My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2)
+My_matrix1
+My_matrix2
+```
+
+---
+
+## Basic Operation of Matrix
+
+- **+, -, *, /**
+- 例子:
+```{r}
+My_matrix1 + My_matrix2
+My_matrix1 * My_matrix2
+```
+
+---
+
+## Basic Operation of Matrix (Cont.)
+
+- **%*%**: Matrix Mulplication
+- **t()**: Transpose
+- 例子:
+```{r}
+my_vec <- matrix(c(1, 2), ncol = 1) ## 為什麼不用c()?
+My_matrix1 %*% my_vec
+My_matrix1 %*% t(my_vec)
+```
+
+---
+
+## Fun Time!!
+
+### Barnsley Fern 碎形
+
+- 起始點: (0, 0)
+
+- With 1% probability:
+<img src="assets/img/Barnsley_Fern_1.png" height="20%" width="20%"/>
+
+- With 85% probability:
+<img src="assets/img/Barnsley_Fern_2.png" height="30%" width="30%"/>
+
+- With 7% probability:
+<img src="assets/img/Barnsley_Fern_3.png" height="30%" width="30%"/>
+
+- With 7% probability:
+<img src="assets/img/Barnsley_Fern_4.png" height="30%" width="30%"/>
+
+- 依此規則迭代出 10000 點，再把這些點畫成圖。
+
+- 只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。
+
 
 ---
 
 ## Barnsley Fern 碎形
 
-<img src="assets/img/Barnsley_Fern.png" height="80%" width="80%" />
+你應該會看到:
+
+<img src="assets/img/Barnsley_Fern.png" height="75%" width="75%" />
+
+---
+
+## Barnsley Fern 碎形程式範例
+
+    iter = 10000
+    p = runif(iter)
+    coord = matrix(c(0, 0), ncol = 1)
+    df = rbind(data.frame(), t(coord))
+    for (i in 1:iter) {
+            if (p[i] <= 0.05) {
+                    m = matrix(c(0, 0, 0, 0.16), nrow = 2, ncol = 2)
+                    const = matrix(c(0, 0), ncol = 1)
+            } else if (p[i] > 0.05 && p[i] <= 0.86) {
+                    m = matrix(c(0.85, -0.04, 0.04, 0.85), nrow = 2, ncol = 2)
+                    const = matrix(c(0, 1.6), ncol = 1)
+            } else if (p[i] > 0.86 && p[i] <= 0.93) {
+                    m = matrix(c(0.2, 0.23, -0.26, 0.22), nrow = 2, ncol = 2)
+                    const = matrix(c(0, 1.6), ncol = 1)
+                    
+
+---
+
+## Barnsley Fern 碎形程式範例 (續)
+
+            } else {
+                    m = matrix(c(-0.15, 0.26, 0.28, 0.24), nrow = 2, ncol = 2)
+                    const = matrix(c(0, 0.44), ncol = 1)
+            }
+            coord = m %*% coord + const
+            df = rbind(df, t(coord))
+    }
+
+    plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
+
 
 ---
 
