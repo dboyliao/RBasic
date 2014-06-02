@@ -2,14 +2,15 @@ iter = 10000
 p = runif(iter)
 coord = matrix(c(0, 0), ncol = 1)
 df = rbind(data.frame(), t(coord))
+dis = c(0.05, 0.81, 0.07)
 for (i in 1:iter) {
-        if (p[i] <= 0.05) {
+        if (p[i] <= dis[1]) {
                 m = matrix(c(0, 0, 0, 0.16), nrow = 2, ncol = 2)
                 const = matrix(c(0, 0), ncol = 1)
-        } else if (p[i] > 0.05 && p[i] <= 0.86) {
+        } else if (p[i] > dis[1] && p[i] <= dis[1] + dis[2]) {
                 m = matrix(c(0.85, -0.04, 0.04, 0.85), nrow = 2, ncol = 2)
                 const = matrix(c(0, 1.6), ncol = 1)
-        } else if (p[i] > 0.86 && p[i] <= 0.93) {
+        } else if (p[i] > dis[1] + dis[2] && p[i] <= sum(dis)) {
                 m = matrix(c(0.2, 0.23, -0.26, 0.22), nrow = 2, ncol = 2)
                 const = matrix(c(0, 1.6), ncol = 1)
         } else {
