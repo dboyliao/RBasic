@@ -236,7 +236,7 @@ My_matrix2
 
 ---
 
-## Basic Operation of Matrix
+## Basic Operation on Matrix
 
 - **+, -, *, /**
 - 例子:
@@ -260,36 +260,52 @@ My_matrix1 %*% t(my_vec)
 
 ---
 
-## Fun Time!!
+## Basic Operation of Matrix (Cont.)
 
-### Barnsley Fern 碎形
+- **dim()**: Dimension
+- 例子:
+```{r}
+dim(My_matrix1)
+```
+
+> 1. 記得常常確認矩陣的維度。
+
+> 2. 尤其是在做複雜的模型時，維度是個非常好的指標。
+
+> 3. 譬如說 Neural Network 的 back-propagation。
+
+---
+
+## Barnsley Fern 碎形
+
+### Fun Time!!
 
 - 起始點: (0, 0)
 
 - With 5% probability:
-<img src="assets/img/Barnsley_Fern_1.png" height="20%" width="20%"/>
+<img src="assets/img/Barnsley_Fern_1.png" height="22%" width="22%"/>
 
 - With 81% probability:
-<img src="assets/img/Barnsley_Fern_2.png" height="30%" width="30%"/>
+<img src="assets/img/Barnsley_Fern_2.png" height="35%" width="35%"/>
 
 - With 7% probability:
-<img src="assets/img/Barnsley_Fern_3.png" height="30%" width="30%"/>
+<img src="assets/img/Barnsley_Fern_3.png" height="35%" width="35%"/>
 
 - With 7% probability:
-<img src="assets/img/Barnsley_Fern_4.png" height="30%" width="30%"/>
-
-- 依此規則迭代出 10000 點，再把這些點畫成圖。
-
-- 只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。
+<img src="assets/img/Barnsley_Fern_4.png" height="35%" width="35%"/>
 
 
 ---
 
 ## Barnsley Fern 碎形
 
-你應該會看到:
+- 依此規則迭代出 10000 點，再把這些點畫成圖。
 
-<img src="assets/img/Barnsley_Fern.png" height="75%" width="75%" />
+- 只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。
+
+- 你應該會看到:
+
+<img src="assets/img/Barnsley_Fern.png" height="70%" width="70%" />
 
 ---
 
@@ -328,13 +344,7 @@ My_matrix1 %*% t(my_vec)
 
 ---
 
-## Factor
-
-
-
----
-
-## Data Frame
+## Factor and Data Frame
 
 - R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。
 
@@ -356,6 +366,7 @@ data(iris)
      class(Species)                 # R 會告訴你他是個 factor。
      Species2 <- as.numeric(Species)
      print(Species2)                # 直接把 factor 轉成 numeric 向量。
+     # 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
 ```
 
 ---
@@ -444,8 +455,8 @@ print(x)
 
 ## Mini-project 1: friend_info_update
 
-- User What We've Learned to Build a Directory!
- - Builde a function called **friend_info_update**.
+- User what we've learned to build a directory!
+ - Define a function called **friend_info_update**.
   - **friend_info_update** takes two arguments: **name_list** and **info_list**.
   - **friend_info_update** will update your friend's information according to 
   **name_list** and **info_list**.
@@ -463,6 +474,39 @@ print(x)
     friend_info_update(name_list, info_list)
     
 <img src="assets/img/friend_demo.png" class="fit100" />
+
+---
+
+## friend_info_update 程式範例
+
+    friend_info_update <- function(name_list, info_list){
+            n_friends <- length(info_list)
+            for (i in 1:n_friends){
+                    name <- name_list[[i]]
+                    info <- matrix(info_list[[i]], nrow = 1,
+                                    dimnames = list(NULL, names(info_list[[i]])))
+                    info <- as.data.frame(info)
+                    write.table(name, 'friend_info.csv', append = T,
+                                sep = ',', row.names = F, col.names = F)
+                    write.table(info, 'friend_info.csv', append = T,
+                                sep = ',', row.names = F, col.names = T)
+            }
+    }
+
+---
+
+## friend_info_update 程式範例 (續)
+
+    name_list <- list('Dboy', 'Boyo')
+    info_D <- c(phone = '0912110266', address = 'Kindom Far Far Away',
+    email = 'qmalliao@farway.com', B_day= '1987/03/29')
+
+    info_B <- c(phone = '0911988987', address = 'Kindom Not So Far Away',
+    email = 'boyo@notfaraway.com', B_day= '1988/02/13')
+
+    info_list <- list(info_D, info_B)
+
+    friend_info_update(name_list, info_list)
 
 ---
 
@@ -577,16 +621,3 @@ print(x)
 4. 新功能: 當新功能進來時，該思考應該在上面的小問題的哪個位置插入適當的程式碼。(判斷玩家重複炸了同一地點?無效的坐標?)
 
 5. 大問題 -> 小問題s -> 大問題
-
-
----
-## apply 系列函數
-
---- &interactive
-
-## Interactive Mode
-```{r opts.label = 'interactive', results = 'asis'}
-source('./little_game.R')
-```
-
-

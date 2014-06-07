@@ -30,7 +30,9 @@ little_game <- function(num_guess = 5, cheat = F){
                                 tr <- tr + 1
                         }
                         if (tr >= num_guess){
-                                cat('You loss.')
+                                cat('You loss.\n')
+                                cat('The secret x is', ship_x, '\n')
+                                cat('The secret y is', ship_y, '\n')
                         }
                 } else {
                         cat('Invalid x or y coordinate.')
@@ -39,4 +41,4 @@ little_game <- function(num_guess = 5, cheat = F){
         
 }
 
-#little_game(cheat = F, 10)
+little_game(cheat = F, 5)

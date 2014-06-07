@@ -1,3 +1,5 @@
+rm(list = ls())
+
 iter = 10000
 p = runif(iter)
 coord = matrix(c(0, 0), ncol = 1)

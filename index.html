@@ -417,7 +417,7 @@ My_matrix2
 
 <slide class="" id="slide-13" style="background:;">
   <hgroup>
-    <h2>Basic Operation of Matrix</h2>
+    <h2>Basic Operation on Matrix</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -477,24 +477,25 @@ My_matrix1 %*% my_vec
 
 <slide class="" id="slide-15" style="background:;">
   <hgroup>
-    <h2>Fun Time!!</h2>
+    <h2>Basic Operation of Matrix (Cont.)</h2>
   </hgroup>
   <article data-timings="">
-    <h3>Barnsley Fern 碎形</h3>
-
-<ul>
-<li><p>起始點: (0, 0)</p></li>
-<li><p>With 5% probability:
-<img src="assets/img/Barnsley_Fern_1.png" height="20%" width="20%"/></p></li>
-<li><p>With 81% probability:
-<img src="assets/img/Barnsley_Fern_2.png" height="30%" width="30%"/></p></li>
-<li><p>With 7% probability:
-<img src="assets/img/Barnsley_Fern_3.png" height="30%" width="30%"/></p></li>
-<li><p>With 7% probability:
-<img src="assets/img/Barnsley_Fern_4.png" height="30%" width="30%"/></p></li>
-<li><p>依此規則迭代出 10000 點，再把這些點畫成圖。</p></li>
-<li><p>只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。</p></li>
+    <ul>
+<li><strong>dim()</strong>: Dimension</li>
+<li>例子:</li>
 </ul>
+
+<pre><code class="r">dim(My_matrix1)
+</code></pre>
+
+<pre><code>## [1] 2 2
+</code></pre>
+
+<ol class = "build incremental">
+<li><p>記得常常確認矩陣的維度。</p></li>
+<li><p>尤其是在做複雜的模型時，維度是個非常好的指標。</p></li>
+<li><p>譬如說 Neural Network 的 back-propagation。</p></li>
+</ol>
 
   </article>
   <!-- Presenter Notes -->
@@ -505,15 +506,42 @@ My_matrix1 %*% my_vec
     <h2>Barnsley Fern 碎形</h2>
   </hgroup>
   <article data-timings="">
-    <p>你應該會看到:</p>
+    <h3>Fun Time!!</h3>
 
-<p><img src="assets/img/Barnsley_Fern.png" height="75%" width="75%" /></p>
+<ul>
+<li><p>起始點: (0, 0)</p></li>
+<li><p>With 5% probability:
+<img src="assets/img/Barnsley_Fern_1.png" height="22%" width="22%"/></p></li>
+<li><p>With 81% probability:
+<img src="assets/img/Barnsley_Fern_2.png" height="35%" width="35%"/></p></li>
+<li><p>With 7% probability:
+<img src="assets/img/Barnsley_Fern_3.png" height="35%" width="35%"/></p></li>
+<li><p>With 7% probability:
+<img src="assets/img/Barnsley_Fern_4.png" height="35%" width="35%"/></p></li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern 碎形</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>依此規則迭代出 10000 點，再把這些點畫成圖。</p></li>
+<li><p>只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。</p></li>
+<li><p>你應該會看到:</p></li>
+</ul>
+
+<p><img src="assets/img/Barnsley_Fern.png" height="70%" width="70%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
     <h2>Barnsley Fern 碎形程式範例</h2>
   </hgroup>
@@ -538,7 +566,7 @@ for (i in 1:iter) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Barnsley Fern 碎形程式範例 (續)</h2>
   </hgroup>
@@ -558,19 +586,9 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
-  <hgroup>
-    <h2>Factor</h2>
-  </hgroup>
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
 <slide class="" id="slide-20" style="background:;">
   <hgroup>
-    <h2>Data Frame</h2>
+    <h2>Factor and Data Frame</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -591,6 +609,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
 class(Species)  # R 會告訴你他是個 factor。
 Species2 &lt;- as.numeric(Species)
 print(Species2)  # 直接把 factor 轉成 numeric 向量。
+# 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
 </code></pre>
 
   </article>
@@ -725,10 +744,10 @@ print(x)
   </hgroup>
   <article data-timings="">
     <ul>
-<li>User What We&#39;ve Learned to Build a Directory!
+<li>User what we&#39;ve learned to build a directory!
 
 <ul>
-<li>Builde a function called <strong>friend_info_update</strong>.</li>
+<li>Define a function called <strong>friend_info_update</strong>.</li>
 <li><strong>friend_info_update</strong> takes two arguments: <strong>name_list</strong> and <strong>info_list</strong>.</li>
 <li><strong>friend_info_update</strong> will update your friend&#39;s information according to 
 <strong>name_list</strong> and <strong>info_list</strong>.</li>
@@ -762,6 +781,51 @@ friend_info_update(name_list, info_list)
 
 <slide class="" id="slide-28" style="background:;">
   <hgroup>
+    <h2>friend_info_update 程式範例</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>friend_info_update &lt;- function(name_list, info_list){
+        n_friends &lt;- length(info_list)
+        for (i in 1:n_friends){
+                name &lt;- name_list[[i]]
+                info &lt;- matrix(info_list[[i]], nrow = 1,
+                                dimnames = list(NULL, names(info_list[[i]])))
+                info &lt;- as.data.frame(info)
+                write.table(name, &#39;friend_info.csv&#39;, append = T,
+                            sep = &#39;,&#39;, row.names = F, col.names = F)
+                write.table(info, &#39;friend_info.csv&#39;, append = T,
+                            sep = &#39;,&#39;, row.names = F, col.names = T)
+        }
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>friend_info_update 程式範例 (續)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>name_list &lt;- list(&#39;Dboy&#39;, &#39;Boyo&#39;)
+info_D &lt;- c(phone = &#39;0912110266&#39;, address = &#39;Kindom Far Far Away&#39;,
+email = &#39;qmalliao@farway.com&#39;, B_day= &#39;1987/03/29&#39;)
+
+info_B &lt;- c(phone = &#39;0911988987&#39;, address = &#39;Kindom Not So Far Away&#39;,
+email = &#39;boyo@notfaraway.com&#39;, B_day= &#39;1988/02/13&#39;)
+
+info_list &lt;- list(info_D, info_B)
+
+friend_info_update(name_list, info_list)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
     <h2>Mini project 2: little_game()</h2>
   </hgroup>
   <article data-timings="">
@@ -785,7 +849,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Little Game: tips</h2>
   </hgroup>
@@ -811,7 +875,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例</h2>
   </hgroup>
@@ -838,7 +902,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -864,7 +928,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -884,7 +948,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>little_game() mini-project 後小檢討</h2>
   </hgroup>
@@ -902,59 +966,6 @@ Guess the y:1
 <li><p>大問題 -&gt; 小問題s -&gt; 大問題</p></li>
 </ol>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-34" style="background:;">
-  <hgroup>
-    <h2>apply 系列函數</h2>
-  </hgroup>
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-35" style="background:;">
-  <hgroup>
-    <h2>Interactive Mode</h2>
-  </hgroup>
-  <article data-timings="">
-     
-<div class='row-fluid'>
-  <div class='span5'>
-    <form id="knitForm35" data-cell="35">
-      <pre><code class="r">source(&quot;./little_game.R&quot;)
-</code></pre>
-
-      <div id='aceeditor35' style="height:px;"></div>
-      <div class='interactive btn-toolbar pull-left'>
-        <div class='btn-group'>
-          <a class='btn btn-small action-button' id='runCode35' data-action='runCode'
-            data-cell='35' rel='tooltip' data-title='Run Code'>
-            <i class='icon-play'></i>
-          </a>
-          <a class='btn btn-small iBtn' id='testCode35' data-action='testCode'
-             data-cell='35' rel='tooltip' data-title='Test Code'>
-            <i class='icon-check'></i>
-          </a>
-          <a class='btn btn-small iBtn' id='clearResult35' data-action='clearResult'
-             data-cell='35' rel='tooltip' data-title='Clear Output'>
-            <i class="icon-remove"></i>
-          </a>
-          <a class='btn  btn-small iBtn' id='getHint35' rel='tooltip' 
-            data-title="Get Hint" data-action='getHint'
-            data-cell='35' data-hint="">
-            <i class="icon-bookmark"></i>
-          </a>
-        </div>
-      </div>    </form>
-  </div>
-  <div class='span7'>
-    <div id="knitResult35" class='shiny-html-output'></div>
-  </div>
-</div>
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -1037,7 +1048,7 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Basic Operation of Matrix'>
+        data-slide=13 title='Basic Operation on Matrix'>
          13
       </a>
     </li>
@@ -1049,7 +1060,7 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Fun Time!!'>
+        data-slide=15 title='Basic Operation of Matrix (Cont.)'>
          15
       </a>
     </li>
@@ -1061,25 +1072,25 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Barnsley Fern 碎形程式範例'>
+        data-slide=17 title='Barnsley Fern 碎形'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Barnsley Fern 碎形程式範例 (續)'>
+        data-slide=18 title='Barnsley Fern 碎形程式範例'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Factor'>
+        data-slide=19 title='Barnsley Fern 碎形程式範例 (續)'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Data Frame'>
+        data-slide=20 title='Factor and Data Frame'>
          20
       </a>
     </li>
@@ -1127,49 +1138,49 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Mini project 2: little_game()'>
+        data-slide=28 title='friend_info_update 程式範例'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Little Game: tips'>
+        data-slide=29 title='friend_info_update 程式範例 (續)'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='littel_game() 成品範例'>
+        data-slide=30 title='Mini project 2: little_game()'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='littel_game() 成品範例 (續)'>
+        data-slide=31 title='Little Game: tips'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='littel_game() 成品範例 (續)'>
+        data-slide=32 title='littel_game() 成品範例'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='little_game() mini-project 後小檢討'>
+        data-slide=33 title='littel_game() 成品範例 (續)'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='apply 系列函數'>
+        data-slide=34 title='littel_game() 成品範例 (續)'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Interactive Mode'>
+        data-slide=35 title='little_game() mini-project 後小檢討'>
          35
       </a>
     </li>
