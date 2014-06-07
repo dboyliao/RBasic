@@ -1,8 +1,8 @@
 ---
 title       : The Basic of R
 subtitle    : Amazing R
-author      : 'Taiwan R User Group'
-job         : 'for R Hacker'
+author      : 'Dboy'
+job         : 'Taiwan R User Group for Hackers'
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -35,7 +35,7 @@ github:
  - Scoping Rule in R
 
 - Mini Projects
- - **friend_info_update**
+ - **Directory of Friends**
  - **Barnsley Fern Fractal**
  - **Little Game: Battleship**
 
@@ -424,6 +424,297 @@ dim(My_matrix1)
 
 > 3. 譬如說 Neural Network 的 back-propagation。
 
+
+---
+
+## Factor and Data Frame
+
+- R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。
+
+- 用法也很簡單，只要輸入以下指令：
+
+
+```r
+data(iris)
+```
+
+
+
+1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
+
+2. names(iris) 將可以看到 iris 所有欄位的名字。
+
+3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
+
+
+```r
+Species <- iris[, "Species"]
+class(Species)  # R 會告訴你他是個 factor。
+Species2 <- as.numeric(Species)
+print(Species2)  # 直接把 factor 轉成 numeric 向量。
+# 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
+```
+
+
+---
+
+## Useful Function for Data Frame
+
+給定一個名叫 data 的 data frame
+
+- names(data): 傳回 data 的所有欄位名稱。
+
+- nrow(data)/ncol(data): 傳回 data 的列 / 行數目。
+
+- head(data, n)/tail(data, n)/View(data)
+
+- which(exp)
+
+- sort/order
+
+- max/min
+
+- rbind/cbind: merge different data frames
+
+---
+
+## Examples: iris
+
+
+```r
+nrow(iris)  # 顯示 iris 的列數
+ncol(iris)  # 顯示 iris 的行數
+dim(iris)  # 顯示 iris 的行、列數
+names(iris)  # 顯示 iris 的欄位名稱
+```
+
+```
+## [1] 150
+```
+
+```
+## [1] 5
+```
+
+```
+## [1] 150   5
+```
+
+```
+## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width" 
+## [5] "Species"
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+head(iris, n = 10)  # 顯示 iris 前 10 筆資料 (預設為 6 筆)
+```
+
+```
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+tail(iris, n = 10)  # 顯示 iris 後 10 筆資料 (預設為 6 筆)
+```
+
+```
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 141          6.7         3.1          5.6         2.4 virginica
+## 142          6.9         3.1          5.1         2.3 virginica
+## 143          5.8         2.7          5.1         1.9 virginica
+## 144          6.8         3.2          5.9         2.3 virginica
+## 145          6.7         3.3          5.7         2.5 virginica
+## 146          6.7         3.0          5.2         2.3 virginica
+## 147          6.3         2.5          5.0         1.9 virginica
+## 148          6.5         3.0          5.2         2.0 virginica
+## 149          6.2         3.4          5.4         2.3 virginica
+## 150          5.9         3.0          5.1         1.8 virginica
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+ind1 <- which(iris[, "Sepal.Length"] >= 6.5 & iris[, "Species"] == "virginica")
+class(ind1)
+iris1 <- iris[ind1, ]
+head(iris1)
+```
+
+```
+## [1] "integer"
+```
+
+```
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 103          7.1         3.0          5.9         2.1 virginica
+## 105          6.5         3.0          5.8         2.2 virginica
+## 106          7.6         3.0          6.6         2.1 virginica
+## 108          7.3         2.9          6.3         1.8 virginica
+## 109          6.7         2.5          5.8         1.8 virginica
+## 110          7.2         3.6          6.1         2.5 virginica
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+ind2 <- which(iris[, "Sepal.Length"] < 5.8 & iris[, "Species"] == "setosa")
+iris2 <- iris[ind2, ]
+head(iris2)
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+iris3 <- rbind(iris1, iris2)
+head(iris3)
+```
+
+```
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 103          7.1         3.0          5.9         2.1 virginica
+## 105          6.5         3.0          5.8         2.2 virginica
+## 106          7.6         3.0          6.6         2.1 virginica
+## 108          7.3         2.9          6.3         1.8 virginica
+## 109          6.7         2.5          5.8         1.8 virginica
+## 110          7.2         3.6          6.1         2.5 virginica
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+iris4 <- cbind(iris1[1:10, ], iris2[1:10, ])
+head(iris4)  # View(iris4)
+```
+
+```
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 103          7.1         3.0          5.9         2.1 virginica
+## 105          6.5         3.0          5.8         2.2 virginica
+## 106          7.6         3.0          6.6         2.1 virginica
+## 108          7.3         2.9          6.3         1.8 virginica
+## 109          6.7         2.5          5.8         1.8 virginica
+## 110          7.2         3.6          6.1         2.5 virginica
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 103          5.1         3.5          1.4         0.2  setosa
+## 105          4.9         3.0          1.4         0.2  setosa
+## 106          4.7         3.2          1.3         0.2  setosa
+## 108          4.6         3.1          1.5         0.2  setosa
+## 109          5.0         3.6          1.4         0.2  setosa
+## 110          5.4         3.9          1.7         0.4  setosa
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+sort(iris[1:30, 2])
+ind5 <- order(iris[, "Sepal.Length"], iris[, "Petal.Length"])
+class(ind5)
+iris5 <- iris[ind5, ]
+```
+
+```
+##  [1] 2.9 3.0 3.0 3.0 3.0 3.1 3.1 3.2 3.2 3.3 3.4 3.4 3.4 3.4 3.4 3.4 3.4
+## [18] 3.5 3.5 3.5 3.6 3.6 3.7 3.7 3.8 3.8 3.9 3.9 4.0 4.4
+```
+
+```
+## [1] "integer"
+```
+
+
+---
+
+## Examples: iris (Cont.)
+
+
+```r
+head(iris5)
+```
+
+```
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 14          4.3         3.0          1.1         0.1  setosa
+## 39          4.4         3.0          1.3         0.2  setosa
+## 43          4.4         3.2          1.3         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 42          4.5         2.3          1.3         0.3  setosa
+## 23          4.6         3.6          1.0         0.2  setosa
+```
+
+
+---
+
+## Play With It And You Will Master It!
+
+我們用 cars 資料庫來練習!
+
+
+```r
+data(cars)
+```
+
+
+Exercises:
+
+> 1. 顯示 cars 前 20 筆資料。
+> 2. 將 speed > 19 的資料另外儲存成 car_fast。
+> 3. 將 speed < 12 的資料另外儲存成 car_slow。
+> 4. 將 car_fast 與 car_slow 合併成 car_extreme。
+> 5. 將 car 先依 speed 再依 dist 排序。
+
+
 ---
 
 ## Fun Time!: Barnsley Fern Fractal
@@ -488,56 +779,6 @@ dim(My_matrix1)
     }
 
     plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
-
-
----
-
-## Factor and Data Frame
-
-- R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。
-
-- 用法也很簡單，只要輸入以下指令：
-
-
-```r
-data(iris)
-```
-
-
-
-1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
-
-2. names(iris) 將可以看到 iris 所有欄位的名字。
-
-3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
-
-
-```r
-Species <- iris[, "Species"]
-class(Species)  # R 會告訴你他是個 factor。
-Species2 <- as.numeric(Species)
-print(Species2)  # 直接把 factor 轉成 numeric 向量。
-# 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
-```
-
-
----
-
-## Useful Function for Data Frame
-
-給定一個名叫 data 的 data frame
-
-- names(data): 傳回 data 的所有欄位名稱。
-
-- nrow(data) / ncol(data): 傳回 data 的列 / 行數目。
-
-- which(exp)
-
-- sort
-
-- max
-
-- min
 
 
 ---
@@ -616,7 +857,7 @@ print(x)
 
 ---
 
-## Mini-project 1: friend_info_update
+## Directory of Friends: friend_info_update
 
 - User what we've learned to build a directory!
  - Define a function called **friend_info_update**.
@@ -693,7 +934,7 @@ print(x)
 
 ---
 
-## Some Function You May Need
+## Some Function You Might Need
 
 - readline(msg)
 

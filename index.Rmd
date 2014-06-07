@@ -1,8 +1,8 @@
 ---
 title       : The Basic of R
 subtitle    : Amazing R
-author      : 'Taiwan R User Group'
-job         : 'for R Hacker'
+author      : 'Dboy'
+job         : 'Taiwan R User Group for Hackers'
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -35,7 +35,7 @@ github:
  - Scoping Rule in R
 
 - Mini Projects
- - **friend_info_update**
+ - **Directory of Friends**
  - **Barnsley Fern Fractal**
  - **Little Game: Battleship**
 
@@ -288,6 +288,158 @@ dim(My_matrix1)
 
 > 3. 譬如說 Neural Network 的 back-propagation。
 
+
+---
+
+## Factor and Data Frame
+
+- R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。
+
+- 用法也很簡單，只要輸入以下指令：
+
+```{r, result = 'hide'}
+data(iris)
+```
+
+
+1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
+
+2. names(iris) 將可以看到 iris 所有欄位的名字。
+
+3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
+
+```{r, results = 'hide'}
+     Species <- iris[, 'Species']
+     class(Species)                 # R 會告訴你他是個 factor。
+     Species2 <- as.numeric(Species)
+     print(Species2)                # 直接把 factor 轉成 numeric 向量。
+     # 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
+```
+
+---
+
+## Useful Function for Data Frame
+
+給定一個名叫 data 的 data frame
+
+- names(data): 傳回 data 的所有欄位名稱。
+
+- nrow(data)/ncol(data): 傳回 data 的列 / 行數目。
+
+- head(data, n)/tail(data, n)/View(data)
+
+- which(exp)
+
+- sort/order
+
+- max/min
+
+- rbind/cbind: merge different data frames
+
+---
+
+## Examples: iris
+
+```{r, results = 'hold'}
+nrow(iris)    # 顯示 iris 的列數
+ncol(iris)    # 顯示 iris 的行數
+dim(iris)     # 顯示 iris 的行、列數
+names(iris)   # 顯示 iris 的欄位名稱
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+head(iris, n = 10)    # 顯示 iris 前 10 筆資料 (預設為 6 筆)
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+tail(iris, n = 10)    # 顯示 iris 後 10 筆資料 (預設為 6 筆)
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+ind1 <- which(iris[, 'Sepal.Length'] >= 6.5 & iris[, 'Species'] == 'virginica')
+class(ind1)
+iris1 <- iris[ind1, ]
+head(iris1)
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+ind2 <- which(iris[, 'Sepal.Length'] < 5.8 & iris[, 'Species'] == 'setosa')
+iris2 <- iris[ind2, ]
+head(iris2)
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+iris3 <- rbind(iris1, iris2)
+head(iris3)
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+iris4 <- cbind(iris1[1:10, ], iris2[1:10, ])
+head(iris4)   # View(iris4)
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+sort(iris[1:30, 2])
+ind5 <- order(iris[, 'Sepal.Length'], iris[, 'Petal.Length'])
+class(ind5)
+iris5 <- iris[ind5, ]
+```
+
+---
+
+## Examples: iris (Cont.)
+
+```{r, results = 'hold'}
+head(iris5)
+```
+
+---
+
+## Play With It And You Will Master It!
+
+我們用 cars 資料庫來練習!
+
+```{r, result = 'hide'}
+data(cars)
+```
+
+Exercises:
+
+> 1. 顯示 cars 前 20 筆資料。
+> 2. 將 speed > 19 的資料另外儲存成 car_fast。
+> 3. 將 speed < 12 的資料另外儲存成 car_slow。
+> 4. 將 car_fast 與 car_slow 合併成 car_extreme。
+> 5. 將 car 先依 speed 再依 dist 排序。
+
+
 ---
 
 ## Fun Time!: Barnsley Fern Fractal
@@ -356,52 +508,6 @@ dim(My_matrix1)
 
 ---
 
-## Factor and Data Frame
-
-- R 中有很多內建資料庫，其中包括你不可以不知道的 iris 資料庫。
-
-- 用法也很簡單，只要輸入以下指令：
-
-```{r, result = 'hide'}
-data(iris)
-```
-
-
-1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
-
-2. names(iris) 將可以看到 iris 所有欄位的名字。
-
-3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
-
-```{r, results = 'hide'}
-     Species <- iris[, 'Species']
-     class(Species)                 # R 會告訴你他是個 factor。
-     Species2 <- as.numeric(Species)
-     print(Species2)                # 直接把 factor 轉成 numeric 向量。
-     # 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
-```
-
----
-
-## Useful Function for Data Frame
-
-給定一個名叫 data 的 data frame
-
-- names(data): 傳回 data 的所有欄位名稱。
-
-- nrow(data) / ncol(data): 傳回 data 的列 / 行數目。
-
-- which(exp)
-
-- sort
-
-- max
-
-- min
-
-
----
-
 ## List
 
 - list 是非常方便好用的資料形態。尤其是需儲存不同類型資料的時候，特別好用。
@@ -465,7 +571,7 @@ print(x)
 
 ---
 
-## Mini-project 1: friend_info_update
+## Directory of Friends: friend_info_update
 
 - User what we've learned to build a directory!
  - Define a function called **friend_info_update**.
@@ -542,7 +648,7 @@ print(x)
 
 ---
 
-## Some Function You May Need
+## Some Function You Might Need
 
 - readline(msg)
 ```{r, eval=FALSE}

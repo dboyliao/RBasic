@@ -4,7 +4,7 @@
   <title>The Basic of R</title>
   <meta charset="utf-8">
   <meta name="description" content="The Basic of R">
-  <meta name="author" content="Taiwan R User Group">
+  <meta name="author" content="Dboy">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -42,7 +42,7 @@
   <hgroup class="auto-fadein">
     <h1>The Basic of R</h1>
     <h2>Amazing R</h2>
-    <p>Taiwan R User Group<br/>for R Hacker</p>
+    <p>Dboy<br/>Taiwan R User Group for Hackers</p>
   </hgroup>
     <a href="https://github.com/DboyLiao/RBasic/zipball/gh-pages" class="example">
      Download
@@ -94,7 +94,7 @@
 <li><p>Mini Projects</p>
 
 <ul>
-<li><strong>friend_info_update</strong></li>
+<li><strong>Directory of Friends</strong></li>
 <li><strong>Barnsley Fern Fractal</strong></li>
 <li><strong>Little Game: Battleship</strong></li>
 </ul></li>
@@ -565,89 +565,6 @@ My_matrix1 %*% my_vec
 
 <slide class="" id="slide-19" style="background:;">
   <hgroup>
-    <h2>Fun Time!: Barnsley Fern Fractal</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li><p>起始點: (0, 0)</p></li>
-<li><p>With 5% probability:
-<img src="assets/img/Barnsley_Fern_1.png" height="25%" width="25%"/></p></li>
-<li><p>With 81% probability:
-<img src="assets/img/Barnsley_Fern_2.png" height="42.5%" width="42.5%"/></p></li>
-<li><p>With 7% probability:
-<img src="assets/img/Barnsley_Fern_3.png" height="42.5%" width="42.5%"/></p></li>
-<li><p>With 7% probability:
-<img src="assets/img/Barnsley_Fern_4.png" height="42.5%" width="42.5%"/></p></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-20" style="background:;">
-  <hgroup>
-    <h2>Barnsley Fern Fractal</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li><p>依此規則迭代出 10000 點，再把這些點畫成圖。</p></li>
-<li><p>只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。</p></li>
-<li><p>你應該會看到:</p></li>
-</ul>
-
-<p><img src="assets/img/Barnsley_Fern.png" height="70%" width="70%" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-21" style="background:;">
-  <hgroup>
-    <h2>Barnsley Fern Fractal程式範例</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code>iter = 10000
-p = runif(iter)
-coord = matrix(c(0, 0), ncol = 1)
-df = rbind(data.frame(), t(coord))
-for (i in 1:iter) {
-        if (p[i] &lt;= 0.05) {
-                m = matrix(c(0, 0, 0, 0.16), nrow = 2, ncol = 2)
-                const = matrix(c(0, 0), ncol = 1)
-        } else if (p[i] &gt; 0.05 &amp;&amp; p[i] &lt;= 0.86) {
-                m = matrix(c(0.85, -0.04, 0.04, 0.85), nrow = 2, ncol = 2)
-                const = matrix(c(0, 1.6), ncol = 1)
-        } else if (p[i] &gt; 0.86 &amp;&amp; p[i] &lt;= 0.93) {
-                m = matrix(c(0.2, 0.23, -0.26, 0.22), nrow = 2, ncol = 2)
-                const = matrix(c(0, 1.6), ncol = 1)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-22" style="background:;">
-  <hgroup>
-    <h2>Barnsley Fern Fractal程式範例 (續)</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code>        } else {
-                m = matrix(c(-0.15, 0.26, 0.28, 0.24), nrow = 2, ncol = 2)
-                const = matrix(c(0, 0.44), ncol = 1)
-        }
-        coord = m %*% coord + const
-        df = rbind(df, t(coord))
-}
-
-plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-23" style="background:;">
-  <hgroup>
     <h2>Factor and Data Frame</h2>
   </hgroup>
   <article data-timings="">
@@ -676,7 +593,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Useful Function for Data Frame</h2>
   </hgroup>
@@ -685,18 +602,348 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
 
 <ul>
 <li><p>names(data): 傳回 data 的所有欄位名稱。</p></li>
-<li><p>nrow(data) / ncol(data): 傳回 data 的列 / 行數目。</p></li>
+<li><p>nrow(data)/ncol(data): 傳回 data 的列 / 行數目。</p></li>
+<li><p>head(data, n)/tail(data, n)/View(data)</p></li>
 <li><p>which(exp)</p></li>
-<li><p>sort</p></li>
-<li><p>max</p></li>
-<li><p>min</p></li>
+<li><p>sort/order</p></li>
+<li><p>max/min</p></li>
+<li><p>rbind/cbind: merge different data frames</p></li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Examples: iris</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">nrow(iris)  # 顯示 iris 的列數
+ncol(iris)  # 顯示 iris 的行數
+dim(iris)  # 顯示 iris 的行、列數
+names(iris)  # 顯示 iris 的欄位名稱
+</code></pre>
+
+<pre><code>## [1] 150
+</code></pre>
+
+<pre><code>## [1] 5
+</code></pre>
+
+<pre><code>## [1] 150   5
+</code></pre>
+
+<pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot; 
+## [5] &quot;Species&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">head(iris, n = 10)  # 顯示 iris 前 10 筆資料 (預設為 6 筆)
+</code></pre>
+
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">tail(iris, n = 10)  # 顯示 iris 後 10 筆資料 (預設為 6 筆)
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 141          6.7         3.1          5.6         2.4 virginica
+## 142          6.9         3.1          5.1         2.3 virginica
+## 143          5.8         2.7          5.1         1.9 virginica
+## 144          6.8         3.2          5.9         2.3 virginica
+## 145          6.7         3.3          5.7         2.5 virginica
+## 146          6.7         3.0          5.2         2.3 virginica
+## 147          6.3         2.5          5.0         1.9 virginica
+## 148          6.5         3.0          5.2         2.0 virginica
+## 149          6.2         3.4          5.4         2.3 virginica
+## 150          5.9         3.0          5.1         1.8 virginica
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ind1 &lt;- which(iris[, &quot;Sepal.Length&quot;] &gt;= 6.5 &amp; iris[, &quot;Species&quot;] == &quot;virginica&quot;)
+class(ind1)
+iris1 &lt;- iris[ind1, ]
+head(iris1)
+</code></pre>
+
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 103          7.1         3.0          5.9         2.1 virginica
+## 105          6.5         3.0          5.8         2.2 virginica
+## 106          7.6         3.0          6.6         2.1 virginica
+## 108          7.3         2.9          6.3         1.8 virginica
+## 109          6.7         2.5          5.8         1.8 virginica
+## 110          7.2         3.6          6.1         2.5 virginica
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
 <slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ind2 &lt;- which(iris[, &quot;Sepal.Length&quot;] &lt; 5.8 &amp; iris[, &quot;Species&quot;] == &quot;setosa&quot;)
+iris2 &lt;- iris[ind2, ]
+head(iris2)
+</code></pre>
+
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">iris3 &lt;- rbind(iris1, iris2)
+head(iris3)
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 103          7.1         3.0          5.9         2.1 virginica
+## 105          6.5         3.0          5.8         2.2 virginica
+## 106          7.6         3.0          6.6         2.1 virginica
+## 108          7.3         2.9          6.3         1.8 virginica
+## 109          6.7         2.5          5.8         1.8 virginica
+## 110          7.2         3.6          6.1         2.5 virginica
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">iris4 &lt;- cbind(iris1[1:10, ], iris2[1:10, ])
+head(iris4)  # View(iris4)
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 103          7.1         3.0          5.9         2.1 virginica
+## 105          6.5         3.0          5.8         2.2 virginica
+## 106          7.6         3.0          6.6         2.1 virginica
+## 108          7.3         2.9          6.3         1.8 virginica
+## 109          6.7         2.5          5.8         1.8 virginica
+## 110          7.2         3.6          6.1         2.5 virginica
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 103          5.1         3.5          1.4         0.2  setosa
+## 105          4.9         3.0          1.4         0.2  setosa
+## 106          4.7         3.2          1.3         0.2  setosa
+## 108          4.6         3.1          1.5         0.2  setosa
+## 109          5.0         3.6          1.4         0.2  setosa
+## 110          5.4         3.9          1.7         0.4  setosa
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">sort(iris[1:30, 2])
+ind5 &lt;- order(iris[, &quot;Sepal.Length&quot;], iris[, &quot;Petal.Length&quot;])
+class(ind5)
+iris5 &lt;- iris[ind5, ]
+</code></pre>
+
+<pre><code>##  [1] 2.9 3.0 3.0 3.0 3.0 3.1 3.1 3.2 3.2 3.3 3.4 3.4 3.4 3.4 3.4 3.4 3.4
+## [18] 3.5 3.5 3.5 3.6 3.6 3.7 3.7 3.8 3.8 3.9 3.9 4.0 4.4
+</code></pre>
+
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Examples: iris (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">head(iris5)
+</code></pre>
+
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 14          4.3         3.0          1.1         0.1  setosa
+## 39          4.4         3.0          1.3         0.2  setosa
+## 43          4.4         3.2          1.3         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 42          4.5         2.3          1.3         0.3  setosa
+## 23          4.6         3.6          1.0         0.2  setosa
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Play With It And You Will Master It!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>我們用 cars 資料庫來練習!</p>
+
+<pre><code class="r">data(cars)
+</code></pre>
+
+<p>Exercises:</p>
+
+<ol class = "build incremental">
+<li>顯示 cars 前 20 筆資料。</li>
+<li>將 speed &gt; 19 的資料另外儲存成 car_fast。</li>
+<li>將 speed &lt; 12 的資料另外儲存成 car_slow。</li>
+<li>將 car_fast 與 car_slow 合併成 car_extreme。</li>
+<li>將 car 先依 speed 再依 dist 排序。</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Fun Time!: Barnsley Fern Fractal</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>起始點: (0, 0)</p></li>
+<li><p>With 5% probability:
+<img src="assets/img/Barnsley_Fern_1.png" height="25%" width="25%"/></p></li>
+<li><p>With 81% probability:
+<img src="assets/img/Barnsley_Fern_2.png" height="42.5%" width="42.5%"/></p></li>
+<li><p>With 7% probability:
+<img src="assets/img/Barnsley_Fern_3.png" height="42.5%" width="42.5%"/></p></li>
+<li><p>With 7% probability:
+<img src="assets/img/Barnsley_Fern_4.png" height="42.5%" width="42.5%"/></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern Fractal</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>依此規則迭代出 10000 點，再把這些點畫成圖。</p></li>
+<li><p>只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。</p></li>
+<li><p>你應該會看到:</p></li>
+</ul>
+
+<p><img src="assets/img/Barnsley_Fern.png" height="70%" width="70%" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern Fractal程式範例</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>iter = 10000
+p = runif(iter)
+coord = matrix(c(0, 0), ncol = 1)
+df = rbind(data.frame(), t(coord))
+for (i in 1:iter) {
+        if (p[i] &lt;= 0.05) {
+                m = matrix(c(0, 0, 0, 0.16), nrow = 2, ncol = 2)
+                const = matrix(c(0, 0), ncol = 1)
+        } else if (p[i] &gt; 0.05 &amp;&amp; p[i] &lt;= 0.86) {
+                m = matrix(c(0.85, -0.04, 0.04, 0.85), nrow = 2, ncol = 2)
+                const = matrix(c(0, 1.6), ncol = 1)
+        } else if (p[i] &gt; 0.86 &amp;&amp; p[i] &lt;= 0.93) {
+                m = matrix(c(0.2, 0.23, -0.26, 0.22), nrow = 2, ncol = 2)
+                const = matrix(c(0, 1.6), ncol = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Barnsley Fern Fractal程式範例 (續)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>        } else {
+                m = matrix(c(-0.15, 0.26, 0.28, 0.24), nrow = 2, ncol = 2)
+                const = matrix(c(0, 0.44), ncol = 1)
+        }
+        coord = m %*% coord + const
+        df = rbind(df, t(coord))
+}
+
+plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>List</h2>
   </hgroup>
@@ -722,7 +969,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Play With List</h2>
   </hgroup>
@@ -745,7 +992,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>User-Defined Function</h2>
   </hgroup>
@@ -772,7 +1019,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-38" style="background:;">
   <hgroup>
     <h2>Global v.s. Local</h2>
   </hgroup>
@@ -798,9 +1045,9 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
-    <h2>Mini-project 1: friend_info_update</h2>
+    <h2>Directory of Friends: friend_info_update</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -819,7 +1066,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2>Sample output:</h2>
   </hgroup>
@@ -839,7 +1086,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>friend_info_update 程式範例</h2>
   </hgroup>
@@ -863,7 +1110,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>friend_info_update 程式範例 (續)</h2>
   </hgroup>
@@ -884,7 +1131,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Mini project 2: battleship()</h2>
   </hgroup>
@@ -909,9 +1156,9 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
-    <h2>Some Function You May Need</h2>
+    <h2>Some Function You Might Need</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -945,7 +1192,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <hgroup>
     <h2>Little Game: tips</h2>
   </hgroup>
@@ -971,7 +1218,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <hgroup>
     <h2>battleship() 成品範例</h2>
   </hgroup>
@@ -998,7 +1245,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -1024,7 +1271,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -1044,7 +1291,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-49" style="background:;">
   <hgroup>
     <h2>little_game() mini-project 後小檢討</h2>
   </hgroup>
@@ -1180,128 +1427,188 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Fun Time!: Barnsley Fern Fractal'>
+        data-slide=19 title='Factor and Data Frame'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Barnsley Fern Fractal'>
+        data-slide=20 title='Useful Function for Data Frame'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Barnsley Fern Fractal程式範例'>
+        data-slide=21 title='Examples: iris'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Barnsley Fern Fractal程式範例 (續)'>
+        data-slide=22 title='Examples: iris (Cont.)'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Factor and Data Frame'>
+        data-slide=23 title='Examples: iris (Cont.)'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Useful Function for Data Frame'>
+        data-slide=24 title='Examples: iris (Cont.)'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='List'>
+        data-slide=25 title='Examples: iris (Cont.)'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Play With List'>
+        data-slide=26 title='Examples: iris (Cont.)'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='User-Defined Function'>
+        data-slide=27 title='Examples: iris (Cont.)'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Global v.s. Local'>
+        data-slide=28 title='Examples: iris (Cont.)'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='Mini-project 1: friend_info_update'>
+        data-slide=29 title='Examples: iris (Cont.)'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Sample output:'>
+        data-slide=30 title='Play With It And You Will Master It!'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='friend_info_update 程式範例'>
+        data-slide=31 title='Fun Time!: Barnsley Fern Fractal'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='friend_info_update 程式範例 (續)'>
+        data-slide=32 title='Barnsley Fern Fractal'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Mini project 2: battleship()'>
+        data-slide=33 title='Barnsley Fern Fractal程式範例'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Some Function You May Need'>
+        data-slide=34 title='Barnsley Fern Fractal程式範例 (續)'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='Little Game: tips'>
+        data-slide=35 title='List'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='battleship() 成品範例'>
+        data-slide=36 title='Play With List'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='littel_game() 成品範例 (續)'>
+        data-slide=37 title='User-Defined Function'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='littel_game() 成品範例 (續)'>
+        data-slide=38 title='Global v.s. Local'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='little_game() mini-project 後小檢討'>
+        data-slide=39 title='Directory of Friends: friend_info_update'>
          39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Sample output:'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='friend_info_update 程式範例'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='friend_info_update 程式範例 (續)'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='Mini project 2: battleship()'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Some Function You Might Need'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Little Game: tips'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='battleship() 成品範例'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='littel_game() 成品範例 (續)'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='littel_game() 成品範例 (續)'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='little_game() mini-project 後小檢討'>
+         49
       </a>
     </li>
   </ul>
