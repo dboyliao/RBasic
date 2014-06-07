@@ -468,7 +468,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
 
 - nrow(data) / ncol(data): 傳回 data 的列 / 行數目。
 
-- which(exp): Demo?
+- which(exp)
 
 - sort
 
@@ -608,6 +608,7 @@ print(x)
 
     friend_info_update(name_list, info_list)
 
+
 ---
 
 ## Mini project 2: little_game()
@@ -626,6 +627,38 @@ print(x)
     [1] "O" "O" "O" "O" "O"
     [1] "O" "O" "O" "O" "O"
     [1] "You miss."
+
+---
+
+## Some Function You May Need
+
+- readline(msg)
+
+```r
+readline("Are you a girl?")
+```
+
+
+- sample.int(x, size)
+
+```r
+sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
+```
+
+```
+## [1] 5
+```
+
+
+- cat(): 簡單版的 print 。
+
+```r
+cat("I love R!")
+```
+
+```
+## I love R!
+```
 
 
 ---
@@ -647,7 +680,6 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 
 - 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
 
-- 增加新功能: 如果玩家輸入的坐標有誤? 如果玩家炸到已經炸過的地點?
 
 ---
 

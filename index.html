@@ -626,7 +626,7 @@ print(Species2)  # 直接把 factor 轉成 numeric 向量。
 <ul>
 <li><p>names(data): 傳回 data 的所有欄位名稱。</p></li>
 <li><p>nrow(data) / ncol(data): 傳回 data 的列 / 行數目。</p></li>
-<li><p>which(exp): Demo?</p></li>
+<li><p>which(exp)</p></li>
 <li><p>sort</p></li>
 <li><p>max</p></li>
 <li><p>min</p></li>
@@ -851,6 +851,42 @@ Guess the y:1
 
 <slide class="" id="slide-31" style="background:;">
   <hgroup>
+    <h2>Some Function You May Need</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>readline(msg)</li>
+</ul>
+
+<pre><code class="r">readline(&quot;Are you a girl?&quot;)
+</code></pre>
+
+<ul>
+<li>sample.int(x, size)</li>
+</ul>
+
+<pre><code class="r">sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
+</code></pre>
+
+<pre><code>## [1] 5
+</code></pre>
+
+<ul>
+<li>cat(): 簡單版的 print 。</li>
+</ul>
+
+<pre><code class="r">cat(&quot;I love R!&quot;)
+</code></pre>
+
+<pre><code>## I love R!
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
     <h2>Little Game: tips</h2>
   </hgroup>
   <article data-timings="">
@@ -868,14 +904,13 @@ Guess the y:1
 <li><p>用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)</p></li>
 <li><p>定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)</p></li>
 <li><p>用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。</p></li>
-<li><p>增加新功能: 如果玩家輸入的坐標有誤? 如果玩家炸到已經炸過的地點?</p></li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例</h2>
   </hgroup>
@@ -902,7 +937,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -928,7 +963,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -948,7 +983,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>little_game() mini-project 後小檢討</h2>
   </hgroup>
@@ -1156,19 +1191,19 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Little Game: tips'>
+        data-slide=31 title='Some Function You May Need'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='littel_game() 成品範例'>
+        data-slide=32 title='Little Game: tips'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='littel_game() 成品範例 (續)'>
+        data-slide=33 title='littel_game() 成品範例'>
          33
       </a>
     </li>
@@ -1180,8 +1215,14 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='little_game() mini-project 後小檢討'>
+        data-slide=35 title='littel_game() 成品範例 (續)'>
          35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='little_game() mini-project 後小檢討'>
+         36
       </a>
     </li>
   </ul>
