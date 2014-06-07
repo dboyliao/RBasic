@@ -450,8 +450,8 @@ data(iris)
 ```r
 Species <- iris[, "Species"]
 class(Species)  # R 會告訴你他是個 factor。
-Species2 <- as.numeric(Species)
-print(Species2)  # 直接把 factor 轉成 numeric 向量。
+Species2 <- as.numeric(Species)  # 直接把 factor 轉成 numeric 向量。
+Species2
 # 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
 ```
 
