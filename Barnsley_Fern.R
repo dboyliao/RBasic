@@ -1,6 +1,6 @@
 rm(list = ls())
 
-iter = 10000
+iter = 20000
 p = runif(iter)
 coord = matrix(c(0, 0), ncol = 1)
 df = rbind(data.frame(), t(coord))

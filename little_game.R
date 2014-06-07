@@ -41,4 +41,4 @@ battleship <- function(num_guess = 5, cheat = F){
         
 }
 
-battleship(cheat = F, 5)
+battleship(cheat = F, 10)

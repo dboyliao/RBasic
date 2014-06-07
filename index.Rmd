@@ -437,7 +437,7 @@ Exercises:
 > 2. 將 speed > 19 的資料另外儲存成 car_fast。
 > 3. 將 speed < 12 的資料另外儲存成 car_slow。
 > 4. 將 car_fast 與 car_slow 合併成 car_extreme。
-> 5. 將 car 先依 speed 再依 dist 排序。
+> 5. 將 car 先依 speed 再依 dist 排序。(Hint: order)
 
 
 ---
