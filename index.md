@@ -15,7 +15,7 @@ github:
 
 --- &twocol
 
-## Table of Content
+## Topics We Will (Might?) Cover Today
 *** =left
 - DATA: 一切的起源
   - 資料屬性
@@ -30,23 +30,20 @@ github:
   - 字串處理
 
 *** =right
-- Build-in funcions in R
-
 - Define Your Own Function
  - Syntex
- - Something you will not do in R....But it is FUN!!
- 
-- apply系列函數
-  - apply
-  - lapply
-  - sapply
-  - tapply / split
+ - Scoping Rule in R
+
+- Mini Projects
+ - **friend_info_update**
+ - **Barnsley Fern Fractal**
+ - **Little Game: Battleship**
 
 
 ---
 
 ## Before We Start
-It is good to have some handy commands at hand.
+It is good to have some handy commands at hands.
 - rm() / ls()
   - rm(list = ls()): clear all objects in Global Enviroment.
 - getwd() / setwd()
@@ -63,17 +60,15 @@ It is good to have some handy commands at hand.
 - Character (字串)
 - Integer (整數)
 - Numeric (雙浮點數 / 實數)
-- Complex (複數)
 - Logical (邏輯值)
+- Complex (複數)
 
 *** =right
 以資料形態來分：
 - 一般變數
 - Vector
-- Matrix
-- Array
-- Factor
-- Data Frame
+- Matrix (Array)
+- Factor and Data Frame
 
 ---
 
@@ -103,16 +98,56 @@ It is good to have some handy commands at hand.
 
 ## Logical
 
+
 ```r
 bol1 <- T
 bol2 <- TRUE
+bol3 <- F
+bol1 == bol2
+```
+
+[1] TRUE
+
+```r
 bol1 & bol2
 ```
 
 [1] TRUE
 
+```r
+bol3 | 4 > 5
+```
 
-### **Funtime**
+[1] FALSE
+
+
+---
+
+## Logical (續)
+
+
+```r
+4 > 2
+```
+
+[1] TRUE
+
+```r
+1 >= 2
+```
+
+[1] FALSE
+
+```r
+"Dboy" == "Dboy"
+```
+
+[1] TRUE
+
+
+---
+
+## **Funtime**
 
 ```r
 mix_vec1 <- c("a", 2)
@@ -125,6 +160,7 @@ mix_vec2 <- c(2, T)
 
 > 1. [1] "a" "2"
 > 2. [1] 2 1
+> 3. Why??
 
 ---
 
@@ -236,22 +272,51 @@ Bob
 
 
 ```r
-named_vec <- c(age = 27, weight = 80)
 vec1 <- c(1, 2, 3)
 vec2 <- c(4, 5, 6)
 vec1 + vec2
 vec1 - vec2
 vec1 * vec2
-names(named_vec)
 vec1[1] + vec2[3]
 ```
 
+```
+## [1] 5 7 9
+```
 
-> 1. [1] 5 7 9
-> 2. [1] -3 -3 -3
-> 3. [1]  4 10 18
-> 4. [1] "age" "weight"
-> 5. [1] 7
+```
+## [1] -3 -3 -3
+```
+
+```
+## [1]  4 10 18
+```
+
+```
+## [1] 7
+```
+
+
+---
+
+## Examples (Cont.)
+
+
+```r
+named_vec <- c(age = 27, weight = 80)
+names(named_vec)
+named_vec["age"]  # reference by name.
+```
+
+```
+## [1] "age"    "weight"
+```
+
+```
+## age 
+##  27
+```
+
 
 
 ---
@@ -283,7 +348,7 @@ My_matrix2
 
 ---
 
-## Basic Operation on Matrix
+## Basic Operations on Matrix
 
 - **+, -, *, /**
 - 例子:
@@ -361,28 +426,26 @@ dim(My_matrix1)
 
 ---
 
-## Barnsley Fern 碎形
-
-### Fun Time!!
+## Fun Time!: Barnsley Fern Fractal
 
 - 起始點: (0, 0)
 
 - With 5% probability:
-<img src="assets/img/Barnsley_Fern_1.png" height="22%" width="22%"/>
+<img src="assets/img/Barnsley_Fern_1.png" height="25%" width="25%"/>
 
 - With 81% probability:
-<img src="assets/img/Barnsley_Fern_2.png" height="35%" width="35%"/>
+<img src="assets/img/Barnsley_Fern_2.png" height="42.5%" width="42.5%"/>
 
 - With 7% probability:
-<img src="assets/img/Barnsley_Fern_3.png" height="35%" width="35%"/>
+<img src="assets/img/Barnsley_Fern_3.png" height="42.5%" width="42.5%"/>
 
 - With 7% probability:
-<img src="assets/img/Barnsley_Fern_4.png" height="35%" width="35%"/>
+<img src="assets/img/Barnsley_Fern_4.png" height="42.5%" width="42.5%"/>
 
 
 ---
 
-## Barnsley Fern 碎形
+## Barnsley Fern Fractal
 
 - 依此規則迭代出 10000 點，再把這些點畫成圖。
 
@@ -394,7 +457,7 @@ dim(My_matrix1)
 
 ---
 
-## Barnsley Fern 碎形程式範例
+## Barnsley Fern Fractal程式範例
 
     iter = 10000
     p = runif(iter)
@@ -414,7 +477,7 @@ dim(My_matrix1)
 
 ---
 
-## Barnsley Fern 碎形程式範例 (續)
+## Barnsley Fern Fractal程式範例 (續)
 
             } else {
                     m = matrix(c(-0.15, 0.26, 0.28, 0.24), nrow = 2, ncol = 2)
@@ -611,9 +674,9 @@ print(x)
 
 ---
 
-## Mini project 2: little_game()
+## Mini project 2: battleship()
 
-    little_game()
+    battleship(10)
     [1] "O" "O" "O" "O" "O"
     [1] "O" "O" "O" "O" "O"
     [1] "O" "O" "O" "O" "O"
@@ -646,7 +709,7 @@ sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
 ```
 
 ```
-## [1] 5
+## [1] 1
 ```
 
 
@@ -664,7 +727,9 @@ cat("I love R!")
 ---
 
 ## Little Game: tips
-接下來我們將一步步指導該如何造出這個 little_game()。
+接下來我們將一步步指導該如何造出這個 battleship()。
+
+- 首先由電腦決定一個座標。
 
 - 定義一個 list 變數 map 如下
 
@@ -683,9 +748,9 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 
 ---
 
-## littel_game() 成品範例
+## battleship() 成品範例
 
-    little_game <- function(num_guess = 5, cheat = F){
+    battleship <- function(num_guess = 5, cheat = F){
             ship_x <- sample.int(5, size = 1)
             ship_y <- sample.int(5, size = 1)
             if (cheat){

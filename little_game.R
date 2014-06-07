@@ -1,4 +1,4 @@
-little_game <- function(num_guess = 5, cheat = F){
+battleship <- function(num_guess = 5, cheat = F){
         ship_x <- sample.int(5, size = 1)
         ship_y <- sample.int(5, size = 1)
         if (cheat){
@@ -31,8 +31,8 @@ little_game <- function(num_guess = 5, cheat = F){
                         }
                         if (tr >= num_guess){
                                 cat('You loss.\n')
-                                cat('The secret x is', ship_x, '\n')
-                                cat('The secret y is', ship_y, '\n')
+                                cat("The battleship's x-coordinate is", ship_x, '\n')
+                                cat("The battleship's y-coordinate is", ship_y, '\n')
                         }
                 } else {
                         cat('Invalid x or y coordinate.')
@@ -41,4 +41,4 @@ little_game <- function(num_guess = 5, cheat = F){
         
 }
 
-little_game(cheat = F, 5)
+battleship(cheat = F, 5)
