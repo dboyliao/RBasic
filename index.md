@@ -78,6 +78,7 @@ It is good to have some handy commands at hands.
 (x <- "R is easy to learn!")
 (y <- 3)
 (z <- pi)
+(k <- 1 + (0+2i))
 ```
 
 ```
@@ -90,6 +91,10 @@ It is good to have some handy commands at hands.
 
 ```
 ## [1] 3.142
+```
+
+```
+## [1] 1+2i
 ```
 
 
@@ -144,6 +149,13 @@ bol3 | 4 > 5
 
 [1] TRUE
 
+```r
+a <- NA
+a == NA  # 要用 is.na(a) 才會回傳 TRUE。(另外還有 is.nan)
+```
+
+[1] NA
+
 
 ---
 
@@ -164,7 +176,7 @@ mix_vec2 <- c(2, T)
 
 ---
 
-## Loop
+## If Loop
 
 ### if / else
 Syntex:
@@ -180,9 +192,25 @@ Syntex:
 
 Note: **else if** and **else** are optional.
 
+---
+
+## If Loop (Cont.)
+
+Exercise:
+
+1. 定義一個變數 value，並隨意給予一個數值。
+
+2. 寫個 if/else if/else 迴圈:
+
+   1. 若 value > 100 或 < -100，執行 print('Extreme')。
+   
+   2. 若 value <= 60 且 value >= 40，執行 print('Median')。
+   
+   3. 其餘狀況，執行 print('Normal')
+
 --- 
 
-## Coding Style for Loop
+## Coding Style for If Loop
 
 以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。
 
@@ -327,22 +355,22 @@ named_vec["age"]  # reference by name.
 - 例子: 
 
 ```r
-My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
-My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2)
+My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2)
+My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
 My_matrix1
 My_matrix2
 ```
 
 ```
 ##      [,1] [,2]
-## [1,]    1    2
-## [2,]    3    4
+## [1,]    1    3
+## [2,]    2    4
 ```
 
 ```
 ##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4
+## [1,]    1    2
+## [2,]    3    4
 ```
 
 
@@ -376,7 +404,7 @@ My_matrix1 * My_matrix2
 
 ---
 
-## Basic Operation of Matrix (Cont.)
+## Basic Operation on Matrix (Cont.)
 
 - **%*%**: Matrix Mulplication
 - **t()**: Transpose
@@ -404,7 +432,7 @@ My_matrix1 %*% t(my_vec)
 
 ---
 
-## Basic Operation of Matrix (Cont.)
+## Basic Operation on Matrix (Cont.)
 
 - **dim()**: Dimension
 - 例子:
@@ -717,7 +745,7 @@ Exercises:
 
 ---
 
-## Fun Time!: Barnsley Fern Fractal
+## Mini Project: Barnsley Fern Fractal
 
 - 起始點: (0, 0)
 
@@ -745,6 +773,17 @@ Exercises:
 - 你應該會看到:
 
 <img src="assets/img/Barnsley_Fern.png" height="70%" width="70%" />
+
+---
+
+## Mini Project (Barnsley Fern Fractal): Tips
+
+- 可以把迭代出來的點用一個 data.frame 存起來。(例如說存成 coor )
+
+- 最後用 plot(x = coor[, 2], y = coor[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1) 把它畫出來。
+
+- 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
+
 
 ---
 
@@ -796,6 +835,34 @@ Exercises:
 - 比較：
  - list(1, '2')
  - list(1, T)
+
+---
+
+## List: Examples
+
+
+```r
+mix_list <- list(iris = iris, Bob = c(age = 27, weight = 80, heigh = 180), cars = cars)
+a <- mix_list[c(1, 3)]
+class(a)
+(b <- mix_list[["Bob"]])
+class(b)
+```
+
+```
+## [1] "list"
+```
+
+```
+##    age weight  heigh 
+##     27     80    180
+```
+
+```
+## [1] "numeric"
+```
+
+
 
 ---
 

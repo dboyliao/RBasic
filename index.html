@@ -170,6 +170,7 @@
     <pre><code class="r">(x &lt;- &quot;R is easy to learn!&quot;)
 (y &lt;- 3)
 (z &lt;- pi)
+(k &lt;- 1 + (0+2i))
 </code></pre>
 
 <pre><code>## [1] &quot;R is easy to learn!&quot;
@@ -179,6 +180,9 @@
 </code></pre>
 
 <pre><code>## [1] 3.142
+</code></pre>
+
+<pre><code>## [1] 1+2i
 </code></pre>
 
   </article>
@@ -232,6 +236,12 @@ bol1 == bol2
 
 <p>[1] TRUE</p>
 
+<pre><code class="r">a &lt;- NA
+a == NA  # 要用 is.na(a) 才會回傳 TRUE。(另外還有 is.nan)
+</code></pre>
+
+<p>[1] NA</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -261,7 +271,7 @@ mix_vec2 &lt;- c(2, T)
 
 <slide class="" id="slide-8" style="background:;">
   <hgroup>
-    <h2>Loop</h2>
+    <h2>If Loop</h2>
   </hgroup>
   <article data-timings="">
     <h3>if / else</h3>
@@ -285,7 +295,29 @@ mix_vec2 &lt;- c(2, T)
 
 <slide class="" id="slide-9" style="background:;">
   <hgroup>
-    <h2>Coding Style for Loop</h2>
+    <h2>If Loop (Cont.)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Exercise:</p>
+
+<ol>
+<li><p>定義一個變數 value，並隨意給予一個數值。</p></li>
+<li><p>寫個 if/else if/else 迴圈:</p>
+
+<ol>
+<li>若 value &gt; 100 或 &lt; -100，執行 print(&#39;Extreme&#39;)。</li>
+<li>若 value &lt;= 60 且 value &gt;= 40，執行 print(&#39;Median&#39;)。</li>
+<li>其餘狀況，執行 print(&#39;Normal&#39;)</li>
+</ol></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Coding Style for If Loop</h2>
   </hgroup>
   <article data-timings="">
     <p>以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。</p>
@@ -304,7 +336,7 @@ if (value &gt; 4) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-10" style="background:;">
+<slide class="" id="slide-11" style="background:;">
   <hgroup>
     <h2>Coding Style for Loop (Cont.)</h2>
   </hgroup>
@@ -330,7 +362,7 @@ if (value &gt; 4) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-11" style="background:;">
+<slide class="" id="slide-12" style="background:;">
   <hgroup>
     <h2>Vector</h2>
   </hgroup>
@@ -361,7 +393,7 @@ Bob
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-12" style="background:;">
+<slide class="" id="slide-13" style="background:;">
   <hgroup>
     <h2>Relating Methods (Vector)</h2>
   </hgroup>
@@ -397,7 +429,7 @@ Bob
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-13" style="background:;">
+<slide class="" id="slide-14" style="background:;">
   <hgroup>
     <h2>Examples</h2>
   </hgroup>
@@ -426,7 +458,7 @@ vec1[1] + vec2[3]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>Examples (Cont.)</h2>
   </hgroup>
@@ -447,7 +479,7 @@ named_vec[&quot;age&quot;]  # reference by name.
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-15" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>Matrix</h2>
   </hgroup>
@@ -457,15 +489,10 @@ named_vec[&quot;age&quot;]  # reference by name.
 <li>例子: </li>
 </ul>
 
-<pre><code class="r">My_matrix1 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
-My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2)
+<pre><code class="r">My_matrix1 &lt;- matrix(c(1, 2, 3, 4), 2, 2)
+My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
 My_matrix1
 My_matrix2
-</code></pre>
-
-<pre><code>##      [,1] [,2]
-## [1,]    1    2
-## [2,]    3    4
 </code></pre>
 
 <pre><code>##      [,1] [,2]
@@ -473,11 +500,16 @@ My_matrix2
 ## [2,]    2    4
 </code></pre>
 
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-17" style="background:;">
   <hgroup>
     <h2>Basic Operations on Matrix</h2>
   </hgroup>
@@ -507,9 +539,9 @@ My_matrix2
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-18" style="background:;">
   <hgroup>
-    <h2>Basic Operation of Matrix (Cont.)</h2>
+    <h2>Basic Operation on Matrix (Cont.)</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -537,9 +569,9 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-18" style="background:;">
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
-    <h2>Basic Operation of Matrix (Cont.)</h2>
+    <h2>Basic Operation on Matrix (Cont.)</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -563,7 +595,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Factor and Data Frame</h2>
   </hgroup>
@@ -593,7 +625,7 @@ Species2
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>Useful Function for Data Frame</h2>
   </hgroup>
@@ -614,7 +646,7 @@ Species2
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Examples: iris</h2>
   </hgroup>
@@ -642,7 +674,7 @@ names(iris)  # 顯示 iris 的欄位名稱
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -667,7 +699,7 @@ names(iris)  # 顯示 iris 的欄位名稱
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-23" style="background:;">
+<slide class="" id="slide-24" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -692,7 +724,7 @@ names(iris)  # 顯示 iris 的欄位名稱
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-24" style="background:;">
+<slide class="" id="slide-25" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -719,7 +751,7 @@ head(iris1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-25" style="background:;">
+<slide class="" id="slide-26" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -742,7 +774,7 @@ head(iris2)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-26" style="background:;">
+<slide class="" id="slide-27" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -764,7 +796,7 @@ head(iris3)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-27" style="background:;">
+<slide class="" id="slide-28" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -793,7 +825,7 @@ head(iris4)  # View(iris4)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-28" style="background:;">
+<slide class="" id="slide-29" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -815,7 +847,7 @@ iris5 &lt;- iris[ind5, ]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-29" style="background:;">
+<slide class="" id="slide-30" style="background:;">
   <hgroup>
     <h2>Examples: iris (Cont.)</h2>
   </hgroup>
@@ -836,7 +868,7 @@ iris5 &lt;- iris[ind5, ]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-30" style="background:;">
+<slide class="" id="slide-31" style="background:;">
   <hgroup>
     <h2>Play With It And You Will Master It!</h2>
   </hgroup>
@@ -860,9 +892,9 @@ iris5 &lt;- iris[ind5, ]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-31" style="background:;">
+<slide class="" id="slide-32" style="background:;">
   <hgroup>
-    <h2>Fun Time!: Barnsley Fern Fractal</h2>
+    <h2>Mini Project: Barnsley Fern Fractal</h2>
   </hgroup>
   <article data-timings="">
     <ul>
@@ -881,7 +913,7 @@ iris5 &lt;- iris[ind5, ]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-32" style="background:;">
+<slide class="" id="slide-33" style="background:;">
   <hgroup>
     <h2>Barnsley Fern Fractal</h2>
   </hgroup>
@@ -898,7 +930,22 @@ iris5 &lt;- iris[ind5, ]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-33" style="background:;">
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Mini Project (Barnsley Fern Fractal): Tips</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>可以把迭代出來的點用一個 data.frame 存起來。(例如說存成 coor )</p></li>
+<li><p>最後用 plot(x = coor[, 2], y = coor[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1) 把它畫出來。</p></li>
+<li><p>這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
   <hgroup>
     <h2>Barnsley Fern Fractal程式範例</h2>
   </hgroup>
@@ -923,7 +970,7 @@ for (i in 1:iter) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-34" style="background:;">
+<slide class="" id="slide-36" style="background:;">
   <hgroup>
     <h2>Barnsley Fern Fractal程式範例 (續)</h2>
   </hgroup>
@@ -943,7 +990,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-35" style="background:;">
+<slide class="" id="slide-37" style="background:;">
   <hgroup>
     <h2>List</h2>
   </hgroup>
@@ -969,7 +1016,33 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-36" style="background:;">
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>List: Examples</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">mix_list &lt;- list(iris = iris, Bob = c(age = 27, weight = 80, heigh = 180), cars = cars)
+a &lt;- mix_list[c(1, 3)]
+class(a)
+(b &lt;- mix_list[[&quot;Bob&quot;]])
+class(b)
+</code></pre>
+
+<pre><code>## [1] &quot;list&quot;
+</code></pre>
+
+<pre><code>##    age weight  heigh 
+##     27     80    180
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
   <hgroup>
     <h2>Play With List</h2>
   </hgroup>
@@ -992,7 +1065,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-37" style="background:;">
+<slide class="" id="slide-40" style="background:;">
   <hgroup>
     <h2>User-Defined Function</h2>
   </hgroup>
@@ -1019,7 +1092,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-38" style="background:;">
+<slide class="" id="slide-41" style="background:;">
   <hgroup>
     <h2>Global v.s. Local</h2>
   </hgroup>
@@ -1045,7 +1118,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-39" style="background:;">
+<slide class="" id="slide-42" style="background:;">
   <hgroup>
     <h2>Directory of Friends: friend_info_update</h2>
   </hgroup>
@@ -1066,7 +1139,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-40" style="background:;">
+<slide class="" id="slide-43" style="background:;">
   <hgroup>
     <h2>Sample output:</h2>
   </hgroup>
@@ -1086,7 +1159,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-41" style="background:;">
+<slide class="" id="slide-44" style="background:;">
   <hgroup>
     <h2>friend_info_update 程式範例</h2>
   </hgroup>
@@ -1110,7 +1183,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-42" style="background:;">
+<slide class="" id="slide-45" style="background:;">
   <hgroup>
     <h2>friend_info_update 程式範例 (續)</h2>
   </hgroup>
@@ -1131,7 +1204,7 @@ friend_info_update(name_list, info_list)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-43" style="background:;">
+<slide class="" id="slide-46" style="background:;">
   <hgroup>
     <h2>Mini project 2: battleship()</h2>
   </hgroup>
@@ -1156,7 +1229,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-44" style="background:;">
+<slide class="" id="slide-47" style="background:;">
   <hgroup>
     <h2>Some Function You Might Need</h2>
   </hgroup>
@@ -1192,7 +1265,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-45" style="background:;">
+<slide class="" id="slide-48" style="background:;">
   <hgroup>
     <h2>Little Game: tips</h2>
   </hgroup>
@@ -1218,7 +1291,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-46" style="background:;">
+<slide class="" id="slide-49" style="background:;">
   <hgroup>
     <h2>battleship() 成品範例</h2>
   </hgroup>
@@ -1245,7 +1318,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-47" style="background:;">
+<slide class="" id="slide-50" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -1271,7 +1344,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:;">
+<slide class="" id="slide-51" style="background:;">
   <hgroup>
     <h2>littel_game() 成品範例 (續)</h2>
   </hgroup>
@@ -1291,7 +1364,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-49" style="background:;">
+<slide class="" id="slide-52" style="background:;">
   <hgroup>
     <h2>little_game() mini-project 後小檢討</h2>
   </hgroup>
@@ -1361,91 +1434,91 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Loop'>
+        data-slide=8 title='If Loop'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Coding Style for Loop'>
+        data-slide=9 title='If Loop (Cont.)'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Coding Style for Loop (Cont.)'>
+        data-slide=10 title='Coding Style for If Loop'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Vector'>
+        data-slide=11 title='Coding Style for Loop (Cont.)'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Relating Methods (Vector)'>
+        data-slide=12 title='Vector'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Examples'>
+        data-slide=13 title='Relating Methods (Vector)'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Examples (Cont.)'>
+        data-slide=14 title='Examples'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Matrix'>
+        data-slide=15 title='Examples (Cont.)'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Basic Operations on Matrix'>
+        data-slide=16 title='Matrix'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Basic Operation of Matrix (Cont.)'>
+        data-slide=17 title='Basic Operations on Matrix'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Basic Operation of Matrix (Cont.)'>
+        data-slide=18 title='Basic Operation on Matrix (Cont.)'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Factor and Data Frame'>
+        data-slide=19 title='Basic Operation on Matrix (Cont.)'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Useful Function for Data Frame'>
+        data-slide=20 title='Factor and Data Frame'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Examples: iris'>
+        data-slide=21 title='Useful Function for Data Frame'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Examples: iris (Cont.)'>
+        data-slide=22 title='Examples: iris'>
          22
       </a>
     </li>
@@ -1493,122 +1566,140 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Play With It And You Will Master It!'>
+        data-slide=30 title='Examples: iris (Cont.)'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Fun Time!: Barnsley Fern Fractal'>
+        data-slide=31 title='Play With It And You Will Master It!'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Barnsley Fern Fractal'>
+        data-slide=32 title='Mini Project: Barnsley Fern Fractal'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='Barnsley Fern Fractal程式範例'>
+        data-slide=33 title='Barnsley Fern Fractal'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='Barnsley Fern Fractal程式範例 (續)'>
+        data-slide=34 title='Mini Project (Barnsley Fern Fractal): Tips'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='List'>
+        data-slide=35 title='Barnsley Fern Fractal程式範例'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Play With List'>
+        data-slide=36 title='Barnsley Fern Fractal程式範例 (續)'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='User-Defined Function'>
+        data-slide=37 title='List'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Global v.s. Local'>
+        data-slide=38 title='List: Examples'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Directory of Friends: friend_info_update'>
+        data-slide=39 title='Play With List'>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='Sample output:'>
+        data-slide=40 title='User-Defined Function'>
          40
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='friend_info_update 程式範例'>
+        data-slide=41 title='Global v.s. Local'>
          41
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='friend_info_update 程式範例 (續)'>
+        data-slide=42 title='Directory of Friends: friend_info_update'>
          42
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Mini project 2: battleship()'>
+        data-slide=43 title='Sample output:'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Some Function You Might Need'>
+        data-slide=44 title='friend_info_update 程式範例'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='Little Game: tips'>
+        data-slide=45 title='friend_info_update 程式範例 (續)'>
          45
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='battleship() 成品範例'>
+        data-slide=46 title='Mini project 2: battleship()'>
          46
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='littel_game() 成品範例 (續)'>
+        data-slide=47 title='Some Function You Might Need'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='littel_game() 成品範例 (續)'>
+        data-slide=48 title='Little Game: tips'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='little_game() mini-project 後小檢討'>
+        data-slide=49 title='battleship() 成品範例'>
          49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='littel_game() 成品範例 (續)'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='littel_game() 成品範例 (續)'>
+         51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='little_game() mini-project 後小檢討'>
+         52
       </a>
     </li>
   </ul>
