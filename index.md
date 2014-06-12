@@ -35,10 +35,28 @@ github:
  - Scoping Rule in R
 
 - Mini Projects
- - **Directory of Friends**
  - **Barnsley Fern Fractal**
  - **Little Game: Battleship**
 
+---
+
+## About This Course
+
+- 我們希望透過直接寫 code 的方式，讓學員可以熟悉 R 的基本操作。
+
+- 除了一些例子跟簡單的習題外，我們另外準備了兩個 mini project 來練習如何綜合所學到的語法。
+
+- 你會學到:
+
+<img src="assets/img/Barnsley.gif" height="60%" width="60%" />
+
+---
+
+## About This Course (Cont.)
+
+- 也會學到:
+
+<img src="assets/img/battle_ship.gif" height="25%" width="25%" />
 
 ---
 

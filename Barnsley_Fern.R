@@ -1,6 +1,8 @@
 rm(list = ls())
 
-iter = 20000
+if (!is.loaded('animation')){library('animation')}
+
+iter = 40000
 p = runif(iter)
 coord = matrix(c(0, 0), ncol = 1)
 df = rbind(data.frame(), t(coord))
@@ -22,5 +24,11 @@ for (i in 1:iter) {
         coord = m %*% coord + const
         df = rbind(df, t(coord))
 }
-
-plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
+th <- 0.01
+for (i in seq(1000, iter, by = 500)){
+        name <- paste('~/Barnsley/', toString(th), '.png', sep = '')
+        png(filename = name, width = 900, height = 566)
+        plot(x = df[1:i, 2], y = df[1:i, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
+        dev.off()
+        th <- th + 0.01
+}
