@@ -428,13 +428,12 @@ vec1[1] + vec2[3]
 
 
 ```r
-named_vec <- c(age = 27, weight = 80)
-names(named_vec)
-named_vec["age"]  # reference by name.
+names(Bob)
+Bob["age"]  # reference by name.
 ```
 
 ```
-## [1] "age"    "weight"
+## [1] "age"    "height" "weight"
 ```
 
 ```
@@ -1228,7 +1227,7 @@ sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
 ```
 
 ```
-## [1] 2
+## [1] 1
 ```
 
 
