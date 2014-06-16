@@ -220,7 +220,7 @@ Exercise:
 
 1. 定義一個變數 value，並隨意給予一個數值。
 
-2. 寫個 if/else if/else 迴圈:
+2. 寫個 **if**/**else if**/**else** 迴圈:
 
    1. 若 value > 100 或 < -100，執行 print('Extreme')。
    
@@ -296,11 +296,31 @@ for (i in 1:10) {
 
 ## While Loop
 
-Syntex:
+### Syntex:
 
     while (condition_1){
         #Do something here....
     } 
+
+### Example:
+
+
+    while (T){
+            handsome <- readline('Are you handsome? ')
+            if (handsome == 'yes'){
+                    print('Really....!?')
+            } else {
+                    print('Now we are talking.')
+                    break
+            }
+    }
+
+
+---
+
+## While Loop (Cont.)
+
+<img src="assets/img/while.gif" height="60%" width="60%" />
 
 --- .segue bg:navy
 
@@ -824,6 +844,29 @@ Exercises:
 4. 將 car_fast 與 car_slow 合併成 car_extreme。
 5. 將 car 先依 speed 再依 dist 排序。(Hint: order)
 
+---
+
+## Play With It And You Will Master It!
+
+我們用 cars 資料庫來練習!
+
+
+```r
+data(cars)
+```
+
+
+Exercises:
+
+1. 顯示 cars 前 20 筆資料。
+2. 將 speed > 19 的資料另外儲存成 car_fast。
+3. 將 speed < 12 的資料另外儲存成 car_slow。
+4. 將 car_fast 與 car_slow 合併成 car_extreme。
+5. 將 car 先依 speed 再依 dist 排序。(Hint: order)
+
+
+`更多進階技巧敬請期待 ETL 教學課程。`
+
 --- .segue bg:navy
 
 ## Mini Project 1: Barnsley Fern Fractal
@@ -869,8 +912,19 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
-- 敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)
 
+---
+
+## Barnsley Fern Fractal: Tips
+
+- 可以把迭代出來的點用一個 data.frame 存起來。(例如說存成 coor )
+
+- 最後用 plot(x = coor[, 2], y = coor[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1) 把它畫出來。
+
+- 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
+
+
+`敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
 
 ---
 
@@ -1136,7 +1190,7 @@ sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
 ```
 
 ```
-## [1] 2
+## [1] 1
 ```
 
 
