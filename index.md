@@ -1277,7 +1277,6 @@ cat("I love R!")
 
 5. 大問題 -> 小問題s -> 大問題
 
-6. jfkjlk 
 
 --- .segue bg:orange
 
