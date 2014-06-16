@@ -1131,7 +1131,8 @@ iris5 &lt;- iris[ind5, ]
   </hgroup>
   <article data-timings="">
     <ul>
-<li><p>起始點: \(p_0 = \left[ \begin{array}{c}0 \\ 0 \end{array}\right]\)</p></li>
+<li><p>起始點:
+<img src="assets/img/Barnsley_Fern_0.png" height="11.5%" width="11.5%"/></p></li>
 <li><p>With 5% probability:
 <img src="assets/img/Barnsley_Fern_1.png" height="25%" width="25%"/></p></li>
 <li><p>With 81% probability:
@@ -1192,13 +1193,33 @@ iris5 &lt;- iris[ind5, ]
 <li><p>這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)</p></li>
 </ul>
 
-<p><code>敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)</code></p>
+<p><a href="https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R">https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R</a></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-47" style="background:; background-repeat:no-repeat; background-position:center; ">
+  <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
+  <hgroup>
+    <h2>Barnsley Fern Fractal: Tips</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>可以把迭代出來的點用一個 data.frame 存起來。(例如說存成 coor )</p></li>
+<li><p>最後用 plot(x = coor[, 2], y = coor[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1) 把它畫出來。</p></li>
+<li><p>這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)</p></li>
+</ul>
+
+<p><a href="https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R">https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R</a></p>
+
+<p><code>敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)</code></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal 程式範例</h2>
@@ -1224,7 +1245,7 @@ for (i in 1:iter) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-48" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-49" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal程式範例 (續)</h2>
@@ -1245,7 +1266,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-49" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-50" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>List</h2>
@@ -1272,7 +1293,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-50" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-51" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>List: Examples</h2>
@@ -1302,7 +1323,7 @@ class(age2)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-51" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-52" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>List: Examples (Cont.)</h2>
@@ -1332,7 +1353,7 @@ head(Bob[[&quot;favorite_data&quot;]])
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-52" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-53" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Play With List</h2>
@@ -1358,7 +1379,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-53" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-54" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>User-Defined Function</h2>
@@ -1382,7 +1403,7 @@ for (i in 1:length(map)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-54" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-55" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Example</h2>
@@ -1408,7 +1429,7 @@ my_sum(numbers)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-55" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-56" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>One Last Thing: Global v.s. Local</h2>
@@ -1435,7 +1456,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-56" style="background:navy; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-57" style="background:navy; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Mini project 2: Battleship</h2>
@@ -1446,7 +1467,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-57" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-58" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Mini project 2: Battleship</h2>
@@ -1472,7 +1493,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-58" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-59" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship: tips</h2>
@@ -1499,7 +1520,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-59" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-60" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Some Function You Might Need</h2>
@@ -1536,7 +1557,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-60" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-61" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship 成品範例</h2>
@@ -1564,7 +1585,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-61" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-62" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship 成品範例 (續)</h2>
@@ -1591,7 +1612,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-62" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-63" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship 成品範例 (續)</h2>
@@ -1612,7 +1633,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-63" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-64" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>little_game() mini-project 後小檢討</h2>
@@ -1635,7 +1656,7 @@ Guess the y:1
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-64" style="background:orange; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-65" style="background:orange; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Thanks for Your Attention!</h2>
@@ -1928,61 +1949,61 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='Barnsley Fern Fractal 程式範例'>
+        data-slide=47 title='Barnsley Fern Fractal: Tips'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Barnsley Fern Fractal程式範例 (續)'>
+        data-slide=48 title='Barnsley Fern Fractal 程式範例'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='List'>
+        data-slide=49 title='Barnsley Fern Fractal程式範例 (續)'>
          49
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='List: Examples'>
+        data-slide=50 title='List'>
          50
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=51 title='List: Examples (Cont.)'>
+        data-slide=51 title='List: Examples'>
          51
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=52 title='Play With List'>
+        data-slide=52 title='List: Examples (Cont.)'>
          52
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=53 title='User-Defined Function'>
+        data-slide=53 title='Play With List'>
          53
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=54 title='Example'>
+        data-slide=54 title='User-Defined Function'>
          54
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=55 title='One Last Thing: Global v.s. Local'>
+        data-slide=55 title='Example'>
          55
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=56 title='Mini project 2: Battleship'>
+        data-slide=56 title='One Last Thing: Global v.s. Local'>
          56
       </a>
     </li>
@@ -1994,25 +2015,25 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=58 title='Battleship: tips'>
+        data-slide=58 title='Mini project 2: Battleship'>
          58
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=59 title='Some Function You Might Need'>
+        data-slide=59 title='Battleship: tips'>
          59
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=60 title='Battleship 成品範例'>
+        data-slide=60 title='Some Function You Might Need'>
          60
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=61 title='Battleship 成品範例 (續)'>
+        data-slide=61 title='Battleship 成品範例'>
          61
       </a>
     </li>
@@ -2024,14 +2045,20 @@ Guess the y:1
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=63 title='little_game() mini-project 後小檢討'>
+        data-slide=63 title='Battleship 成品範例 (續)'>
          63
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=64 title='Thanks for Your Attention!'>
+        data-slide=64 title='little_game() mini-project 後小檢討'>
          64
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=65 title='Thanks for Your Attention!'>
+         65
       </a>
     </li>
   </ul>

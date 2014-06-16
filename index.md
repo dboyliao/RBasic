@@ -875,7 +875,8 @@ Exercises:
 
 ## Mini Project 1: Barnsley Fern Fractal
 
-- 起始點: $p_0 = \left[ \begin{array}{c}0 \\ 0 \end{array}\right]$
+- 起始點:
+<img src="assets/img/Barnsley_Fern_0.png" height="11.5%" width="11.5%"/>
 
 - With 5% probability:
 <img src="assets/img/Barnsley_Fern_1.png" height="25%" width="25%"/>
@@ -912,6 +913,18 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
+---
+
+## Barnsley Fern Fractal: Tips
+
+- 可以把迭代出來的點用一個 data.frame 存起來。(例如說存成 coor )
+
+- 最後用 plot(x = coor[, 2], y = coor[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1) 把它畫出來。
+
+- 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
+
+https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R
+
 
 ---
 
@@ -923,6 +936,7 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
+https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R
 
 `敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
 
@@ -1171,6 +1185,7 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 - 定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
 
 - 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
+
 
 ---
 
