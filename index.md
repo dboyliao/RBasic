@@ -1299,7 +1299,7 @@ cat("I love R!")
 
 ---
 
-## little_game() mini-project 後小檢討
+## Battleship Mini Project 小檢討
 
 1. 在開始 coding 之前，最好先用一張小紙條寫好: 我要做什麼?
 
