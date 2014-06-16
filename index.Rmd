@@ -627,7 +627,7 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
-https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R
+`敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
 
 
 ---
@@ -640,9 +640,10 @@ https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
+`敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
+
 https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R
 
-`敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
 
 ---
 
