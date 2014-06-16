@@ -937,7 +937,7 @@ Exercises:
 
 - `敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
 
-- https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R
+- [Template](https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R)
 
 
 ---
@@ -1207,7 +1207,7 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 
 - 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
 
-- https://dl.dropboxusercontent.com/u/5487490/RBasic/battleship_template.R
+- [Template](https://dl.dropboxusercontent.com/u/5487490/RBasic/battleship_template.R)
 
 ---
 
