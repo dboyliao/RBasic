@@ -13,6 +13,10 @@ github:
   user: DboyLiao
   repo: RBasic
 
+--- .segue bg:navy
+
+## Table of Content
+
 --- &twocol
 
 ## Topics We Will (Might?) Cover Today
@@ -46,17 +50,28 @@ github:
 
 - 除了一些例子跟簡單的習題外，我們另外準備了兩個 mini project 來練習如何綜合所學到的語法。
 
-- 你會學到:
+- Mini Project 1: Barnsley Fern Fractal
 
 <img src="assets/img/Barnsley.gif" height="60%" width="60%" />
 
----
+--- 
 
 ## About This Course (Cont.)
 
-- 也會學到:
+- Mini Project 2: Battleship
 
 <img src="assets/img/battle_ship.gif" height="25%" width="25%" />
+
+---
+
+## Learning Pace
+
+- 如果你沒什麼程式經驗，那可以跟著講解的進度一步一步來。
+
+- 如果你本身已經有一些程式經驗，只是需要練習語法，強烈建議直接跳到後面去。
+> 1. 為達到最大的練習量，兩個 mini project 希望都**不要**使用我們提供之模板。
+> 2. 如果碰到什麼問題，基本上往前面找應該都能找到需要的方法。
+> 3. Go Go Go!!
 
 ---
 
@@ -69,6 +84,10 @@ It is good to have some handy commands at hands.
 - ? : The helper function.
 - class()
 - names()
+
+--- .segue bg:navy
+
+## Data: Where the Story Begins
 
 --- &twocol
 
@@ -126,21 +145,6 @@ a == NA     # 要用 is.na(a) 才會回傳 TRUE。(另外還有 is.nan)
 
 ---
 
-## **Funtime**
-```{r, results='hold'}
-mix_vec1 <- c('a', 2)
-mix_vec2 <- c(2, T)
-```
-猜看看結果會如何?
-
-(c()為 R 中建立向量的內建函式)
-
-> 1. [1] "a" "2"
-> 2. [1] 2 1
-> 3. Why??
-
----
-
 ## If Loop
 
 ### if / else
@@ -192,7 +196,7 @@ if (value > 4){
 
 ---
 
-## Coding Style for Loop (Cont.)
+## Coding Style for If Loop (Cont.)
 
     value <- 5
     {
@@ -208,6 +212,55 @@ if (value > 4){
 > 2. 我自己是覺得第一種比較好看!(自以為狀態啟動)
 > 3. 特別注意到的是，如果把 { } 去掉，程式會出錯喔!(不一定不能跑，但有可能是錯的)
 
+---
+
+## For Loop
+
+### Syntex:
+
+    for (iterator){
+        #Do something here....
+    } 
+
+### Example: 土炮 sum()
+
+```{r, results='hold'}
+# 從 1 加到 10
+final_result <- 0
+for (i in 1:10){
+        final_result <- final_result + i
+}
+(final_result)
+```
+
+---
+
+## While Loop
+
+Syntex:
+
+    while (condition_1){
+        #Do something here....
+    } 
+
+--- .segue bg:navy
+
+## Vector, Matrix, Factor and Data Frame
+
+---
+
+## **Funtime**
+```{r, results='hold'}
+mix_vec1 <- c('a', 2)
+mix_vec2 <- c(2, T)
+```
+猜看看結果會如何?
+
+(c()為 R 中建立向量的內建函式)
+
+> 1. [1] "a" "2"
+> 2. [1] 2 1
+> 3. Why??
 
 ---
 
@@ -446,6 +499,7 @@ head(iris4)   # View(iris4)
 ```{r, results = 'hold'}
 sort(iris[1:30, 2])
 ind5 <- order(iris[, 'Sepal.Length'], iris[, 'Petal.Length'])
+ind5[1:20]
 class(ind5)
 iris5 <- iris[ind5, ]
 ```
@@ -470,18 +524,21 @@ data(cars)
 
 Exercises:
 
-> 1. 顯示 cars 前 20 筆資料。
-> 2. 將 speed > 19 的資料另外儲存成 car_fast。
-> 3. 將 speed < 12 的資料另外儲存成 car_slow。
-> 4. 將 car_fast 與 car_slow 合併成 car_extreme。
-> 5. 將 car 先依 speed 再依 dist 排序。(Hint: order)
+1. 顯示 cars 前 20 筆資料。
+2. 將 speed > 19 的資料另外儲存成 car_fast。
+3. 將 speed < 12 的資料另外儲存成 car_slow。
+4. 將 car_fast 與 car_slow 合併成 car_extreme。
+5. 將 car 先依 speed 再依 dist 排序。(Hint: order)
 
+--- .segue bg:navy
+
+## Mini Project 1: Barnsley Fern Fractal
 
 ---
 
-## Mini Project: Barnsley Fern Fractal
+## Mini Project 1: Barnsley Fern Fractal
 
-- 起始點: (0, 0)
+- 起始點: $p_0 = \left[ \begin{array}{c}0 \\ 0 \end{array}\right]$
 
 - With 5% probability:
 <img src="assets/img/Barnsley_Fern_1.png" height="25%" width="25%"/>
@@ -510,7 +567,7 @@ Exercises:
 
 ---
 
-## Mini Project (Barnsley Fern Fractal): Tips
+## Barnsley Fern Fractal: Tips
 
 - 可以把迭代出來的點用一個 data.frame 存起來。(例如說存成 coor )
 
@@ -518,10 +575,12 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
+- 敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)
+
 
 ---
 
-## Barnsley Fern Fractal程式範例
+## Barnsley Fern Fractal 程式範例
 
     iter = 10000
     p = runif(iter)
@@ -575,17 +634,29 @@ Exercises:
 ## List: Examples
 
 ```{r, results='hold'}
-mix_list <- list(iris = iris, Bob = c(age=27, weight = 80, heigh = 180) ,cars = cars)
-a <- mix_list[c(1, 3)]
-class(a)
-(b <- mix_list[['Bob']])
-class(b)
+Bob <- list(age=27, weight = 80,
+            favorite_data_name = 'iris', favorite_data = iris)
+(age1 <- Bob[1])
+class(age1)
+(age2 <- Bob[[1]])
+class(age2)
+```
+
+---
+
+## List: Examples (Cont.)
+
+```{r, results='hold'}
+(Age_and_DataName <- Bob[c(1, 3)])
+head(Bob[['favorite_data']])
 ```
 
 
 ---
 
 ## Play With List
+
+### `Warmup for Battleship Mini Project: Drawing the Map`
 
 ```{r, results = 'hold'}
 map =list(c('O', 'O', 'O', 'O', 'O'),
@@ -602,19 +673,41 @@ for (i in 1:length(map)){
 ---
 
 ## User-Defined Function
-- Syntex:
+
+### `Syntex`
+
 ```{r, results='hide'}
 my_function <- function(arg1, arg2, ...){
         # do something here
+        
+        # return the result. (optional)
 }
 ```
-- Scoping Rule
- - Local Variable
- - Global Variable
+
+> 1. 如果在最後沒有 return() ，R 會自動回傳**最後一次運算**的結果。
+> 2. 強烈建議習慣性寫上 return()。
 
 ---
 
-## Global v.s. Local
+## Example
+
+### `把剛剛土炮的 sum 包起來!`
+
+```{r}
+my_sum <- function(lst){
+        final_result <- 0
+        for (num in lst){
+                final_result <- final_result + num
+                }
+        return(final_result)
+}
+numbers <- c(1, 2, 5 ,6, 8, 33)
+my_sum(numbers)
+```
+
+---
+
+## One Last Thing: Global v.s. Local
 
 - Example:
 
@@ -630,67 +723,14 @@ print(x)
 
 - 大家來 Try Try See 吧!
 
----
+--- .segue bg:navy
 
-## Directory of Friends: friend_info_update
-
-- User what we've learned to build a directory!
- - Define a function called **friend_info_update**.
-  - **friend_info_update** takes two arguments: **name_list** and **info_list**.
-  - **friend_info_update** will update your friend's information according to 
-  **name_list** and **info_list**.
-  - **friend_info_update** will output one csv file named **friend_info**
-
----
-## Sample output: 
-
-    name_list <- list('Dboy', 'Boyo')
-    info_D <- c(phone = '0912110266', address = 'Kindom Far Far Away',
-                email = 'qmalliao@farway.com', B_day= '1987/03/29')
-    info_B <- c(phone = '0911988987', address = 'Kindom Not So Far Away',
-                email = 'boyo@notfaraway.com', B_day= '1988/02/13')
-    info_list <- list(info_D, info_B)
-    friend_info_update(name_list, info_list)
-    
-<img src="assets/img/friend_demo.png" class="fit100" />
-
----
-
-## friend_info_update 程式範例
-
-    friend_info_update <- function(name_list, info_list){
-            n_friends <- length(info_list)
-            for (i in 1:n_friends){
-                    name <- name_list[[i]]
-                    info <- matrix(info_list[[i]], nrow = 1,
-                                    dimnames = list(NULL, names(info_list[[i]])))
-                    info <- as.data.frame(info)
-                    write.table(name, 'friend_info.csv', append = T,
-                                sep = ',', row.names = F, col.names = F)
-                    write.table(info, 'friend_info.csv', append = T,
-                                sep = ',', row.names = F, col.names = T)
-            }
-    }
-
----
-
-## friend_info_update 程式範例 (續)
-
-    name_list <- list('Dboy', 'Boyo')
-    info_D <- c(phone = '0912110266', address = 'Kindom Far Far Away',
-    email = 'qmalliao@farway.com', B_day= '1987/03/29')
-
-    info_B <- c(phone = '0911988987', address = 'Kindom Not So Far Away',
-    email = 'boyo@notfaraway.com', B_day= '1988/02/13')
-
-    info_list <- list(info_D, info_B)
-
-    friend_info_update(name_list, info_list)
+## Mini project 2: Battleship
 
 
 ---
 
-## Mini project 2: battleship()
+## Mini project 2: Battleship
 
     battleship(10)
     [1] "O" "O" "O" "O" "O"
@@ -707,28 +747,10 @@ print(x)
     [1] "O" "O" "O" "O" "O"
     [1] "You miss."
 
----
-
-## Some Function You Might Need
-
-- readline(msg)
-```{r, eval=FALSE}
-readline('Are you a girl?')
-```
-
-- sample.int(x, size)
-```{r}
-sample.int(5, 1)   # 從 1~5 中隨機抽取 1 個數字。
-```
-
-- cat(): 簡單版的 print 。
-```{r}
-cat('I love R!')
-```
 
 ---
 
-## Little Game: tips
+## Battleship: tips
 接下來我們將一步步指導該如何造出這個 battleship()。
 
 - 首先由電腦決定一個座標。
@@ -748,10 +770,28 @@ cat('I love R!')
 
 - 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
 
+---
+
+## Some Function You Might Need
+
+- readline(msg)
+```{r, eval=FALSE}
+readline('Are you a girl?') # readline() 會把輸入的資料存成字串。
+```
+
+- sample.int(x, size)
+```{r}
+sample.int(5, 1)   # 從 1~5 中隨機抽取 1 個數字。
+```
+
+- cat(): 簡單版的 print 。
+```{r}
+cat('I love R!')
+```
 
 ---
 
-## battleship() 成品範例
+## Battleship 成品範例
 
     battleship <- function(num_guess = 5, cheat = F){
             ship_x <- sample.int(5, size = 1)
@@ -772,7 +812,7 @@ cat('I love R!')
 
 ---
 
-## littel_game() 成品範例 (續)
+## Battleship 成品範例 (續)
 
         while (tr < num_guess){
                     x <- as.numeric(readline('Guess the x:'))
@@ -792,7 +832,7 @@ cat('I love R!')
 
 ---
 
-## littel_game() 成品範例 (續)
+## Battleship 成品範例 (續)
 
                             if (tr >= num_guess){
                                     cat('You loss.')
@@ -820,3 +860,8 @@ cat('I love R!')
 4. 新功能: 當新功能進來時，該思考應該在上面的小問題的哪個位置插入適當的程式碼。(判斷玩家重複炸了同一地點?無效的坐標?)
 
 5. 大問題 -> 小問題s -> 大問題
+
+--- .segue bg:orange
+
+## Thanks for Your Attention!
+

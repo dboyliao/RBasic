@@ -1,6 +1,5 @@
 rm(list = ls())
-
-if (!is.loaded('animation')){library('animation')}
+set.seed(3690)
 
 iter = 40000
 p = runif(iter)
@@ -26,7 +25,7 @@ for (i in 1:iter) {
 }
 th <- 0.01
 for (i in seq(1000, iter, by = 500)){
-        name <- paste('~/Barnsley/', toString(th), '.png', sep = '')
+        name <- paste('./Barnsley/', toString(th), '.png', sep = '')
         png(filename = name, width = 900, height = 566)
         plot(x = df[1:i, 2], y = df[1:i, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
         dev.off()
