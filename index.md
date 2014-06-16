@@ -1165,11 +1165,10 @@ print(x)
     [1] "O" "O" "O" "O" "O"
     [1] "You miss."
 
-
 ---
 
-## Battleship: tips
-接下來我們將一步步指導該如何造出這個 battleship()。
+## Battleship: Tips
+`接下來我們將一步步指導該如何造出這個 battleship()。`
 
 - 首先由電腦決定一個座標。
 
@@ -1190,6 +1189,29 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 
 ---
 
+## Battleship: Tips
+`接下來我們將一步步指導該如何造出這個 battleship()。`
+
+- 首先由電腦決定一個座標。
+
+- 定義一個 list 變數 map 如下
+
+```r
+map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", 
+    "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"))
+```
+
+
+-  用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)
+
+- 定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
+
+- 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
+
+- https://dl.dropboxusercontent.com/u/5487490/RBasic/battleship_template.R
+
+---
+
 ## Some Function You Might Need
 
 - readline(msg)
@@ -1206,7 +1228,7 @@ sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
 ```
 
 ```
-## [1] 1
+## [1] 2
 ```
 
 
