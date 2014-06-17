@@ -688,12 +688,12 @@ Bob[&quot;age&quot;]  # reference by name.
   </hgroup>
   <article data-timings="">
     <ul>
-<li>語法: <strong>matrix(elements, norw, ncol, by.row = T)</strong></li>
+<li>語法: <strong>matrix(elements, norw, ncol, by.row = F)</strong></li>
 <li>例子: </li>
 </ul>
 
 <pre><code class="r">My_matrix1 &lt;- matrix(c(1, 2, 3, 4), 2, 2)
-My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = F)
+My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
 My_matrix1
 My_matrix2
 </code></pre>
@@ -704,8 +704,8 @@ My_matrix2
 </code></pre>
 
 <pre><code>##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4
+## [1,]    1    2
+## [2,]    3    4
 </code></pre>
 
   </article>

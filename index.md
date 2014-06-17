@@ -463,12 +463,12 @@ Bob["age"]  # reference by name.
 
 ## Matrix
 
-- 語法: **matrix(elements, norw, ncol, by.row = T)**
+- 語法: **matrix(elements, norw, ncol, by.row = F)**
 - 例子: 
 
 ```r
 My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2)
-My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = F)
+My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
 My_matrix1
 My_matrix2
 ```
@@ -481,8 +481,8 @@ My_matrix2
 
 ```
 ##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4
+## [1,]    1    2
+## [2,]    3    4
 ```
 
 
