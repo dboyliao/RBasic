@@ -98,6 +98,7 @@ It is good to have some handy commands at hands.
 - class()
 - names()
 - as- and is- functions. (ex: as.numeric, is.array, as.data.frame, etc)
+
 `as 與 is 系列函數真的太多，有興趣的學員可以使用 ? 來查詢相關函式。`
 
 --- .segue bg:navy
