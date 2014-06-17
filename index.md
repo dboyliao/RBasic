@@ -82,8 +82,8 @@ It is good to have some handy commands at hands.
 - getwd() / setwd()
 - memory.size() / memory.limit(): This is for **Windows user only**.
 - ? / ??: The helper function. (ex: ?memory.size)
+- length()
 - class()
-- names()
 - as- and is- functions. (ex: as.numeric, is.array, as.data.frame, etc)
 
 ---
