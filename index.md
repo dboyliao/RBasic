@@ -1283,7 +1283,7 @@ cat("I love R!")
                                     break
                             } else{
                                     cat('You miss.')
-                                    tr <- tr + 1
+                                    trial <- trial + 1
                             }
 
 ---
