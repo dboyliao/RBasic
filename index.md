@@ -922,7 +922,7 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
-- `敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
+- [Template](https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R)
 
 
 ---
@@ -935,9 +935,10 @@ Exercises:
 
 - 這些參數不懂沒關係，它們的唯一功能就只是讓圖變漂亮而已。(很多我也是 Google 來的XD)
 
+- [Template](https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R)
+
 - `敬請期待 Data Visualization 教學課程。(ggplot2 ROCKS!!)`
 
-- [Template](https://dl.dropboxusercontent.com/u/5487490/RBasic/Barnsley_Fern_template.R)
 
 
 ---
@@ -1098,9 +1099,11 @@ my_function <- function(arg1, arg2, ...) {
 
 ---
 
-## Example
+## User-Defined Function (Cont.)
 
-### `把剛剛土炮的 sum 包起來!`
+### Example
+
+`把剛剛土炮的 sum 包起來!`
 
 
 ```r
@@ -1227,7 +1230,7 @@ sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
 ```
 
 ```
-## [1] 1
+## [1] 5
 ```
 
 
