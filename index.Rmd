@@ -84,6 +84,21 @@ It is good to have some handy commands at hands.
 - ? / ??: The helper function. (ex: ?memory.size)
 - class()
 - names()
+- as- and is- functions. (ex: as.numeric, is.array, as.data.frame, etc)
+
+---
+
+## Before We Start
+It is good to have some handy commands at hands.
+- rm() / ls()
+  - rm(list = ls()): clear all objects in Global Enviroment.
+- getwd() / setwd()
+- memory.size() / memory.limit(): This is for **Windows user only**.
+- ? / ??: The helper function. (ex: ?memory.size)
+- class()
+- names()
+- as- and is- functions. (ex: as.numeric, is.array, as.data.frame, etc)
+`as 與 is 系列函數真的太多，有興趣的學員可以使用 ? 來查詢相關函式。`
 
 --- .segue bg:navy
 
