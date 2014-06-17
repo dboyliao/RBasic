@@ -81,7 +81,7 @@ It is good to have some handy commands at hands.
   - rm(list = ls()): clear all objects in Global Enviroment.
 - getwd() / setwd()
 - memory.size() / memory.limit(): This is for **Windows user only**.
-- ? : The helper function.
+- ? / ??: The helper function. (ex: ?memory.size)
 - class()
 - names()
 
