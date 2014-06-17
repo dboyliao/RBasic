@@ -424,7 +424,7 @@ dim(My_matrix1)
 
 ```{r, result = 'hold'}
 data(iris)
-View(head(iris))
+head(iris)
 ```
 
 ---
