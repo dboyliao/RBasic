@@ -546,6 +546,32 @@ My_matrix1 %*% t(my_vec)
 
 ## Basic Operation on Matrix (Cont.)
 
+- **my_matrix[row_index, col_index]**
+- 例子:
+
+```r
+My_matrix1[1, c(1, 3)]
+```
+
+```
+## [1] 1 5
+```
+
+```r
+My_matrix2[, c(2, 3)]
+```
+
+```
+##      [,1] [,2]
+## [1,]    2    3
+## [2,]    5    6
+```
+
+
+---
+
+## Basic Operation on Matrix (Cont.)
+
 - **dim()**: Dimension
 - 例子:
 
@@ -554,7 +580,7 @@ dim(My_matrix1)
 ```
 
 ```
-## [1] 2 2
+## [1] 2 3
 ```
 
 
