@@ -352,7 +352,7 @@ Bob['age']   # reference by name.
 - 例子: 
 ```{r, results = 'hold'}
 My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2)
-My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
+My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = F)
 My_matrix1
 My_matrix2
 ```
@@ -834,9 +834,9 @@ print(x)
 
 -  用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)
 
-- 定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
+- 定義一個變數 trial 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
 
-- 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
+- 用一個 while 迴圈來判斷 trial 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
 
 
 ---
@@ -901,13 +901,13 @@ cat('I love R!')
             for (r in map){
                     print(r)
             }
-            tr <- 0
+            trial <- 0
 
 ---
 
 ## Battleship 成品範例 (續)
 
-        while (tr < num_guess){
+        while (trial < num_guess){
                     x <- as.numeric(readline('Guess the x:'))
                     y <- as.numeric(readline('Guess the y:'))
                     if (x <= 5 && y <= 5 && x > 0 && y > 0){ 
@@ -927,7 +927,7 @@ cat('I love R!')
 
 ## Battleship 成品範例 (續)
 
-                            if (tr >= num_guess){
+                            if (trial >= num_guess){
                                     cat('You loss.')
                             }
                     } else {

@@ -664,7 +664,7 @@ Bob[&quot;age&quot;]  # reference by name.
 </ul>
 
 <pre><code class="r">My_matrix1 &lt;- matrix(c(1, 2, 3, 4), 2, 2)
-My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
+My_matrix2 &lt;- matrix(c(1, 2, 3, 4), 2, 2, byrow = F)
 My_matrix1
 My_matrix2
 </code></pre>
@@ -675,8 +675,8 @@ My_matrix2
 </code></pre>
 
 <pre><code>##      [,1] [,2]
-## [1,]    1    2
-## [2,]    3    4
+## [1,]    1    3
+## [2,]    2    4
 </code></pre>
 
   </article>
@@ -1510,8 +1510,8 @@ Guess the y:1
 
 <ul>
 <li><p>用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)</p></li>
-<li><p>定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)</p></li>
-<li><p>用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。</p></li>
+<li><p>定義一個變數 trial 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)</p></li>
+<li><p>用一個 while 迴圈來判斷 trial 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。</p></li>
 </ul>
 
   </article>
@@ -1604,7 +1604,7 @@ Guess the y:1
         for (r in map){
                 print(r)
         }
-        tr &lt;- 0
+        trial &lt;- 0
 </code></pre>
 
   </article>
@@ -1617,7 +1617,7 @@ Guess the y:1
     <h2>Battleship 成品範例 (續)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>    while (tr &lt; num_guess){
+    <pre><code>    while (trial &lt; num_guess){
                 x &lt;- as.numeric(readline(&#39;Guess the x:&#39;))
                 y &lt;- as.numeric(readline(&#39;Guess the y:&#39;))
                 if (x &lt;= 5 &amp;&amp; y &lt;= 5 &amp;&amp; x &gt; 0 &amp;&amp; y &gt; 0){ 
@@ -1644,7 +1644,7 @@ Guess the y:1
     <h2>Battleship 成品範例 (續)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>                        if (tr &gt;= num_guess){
+    <pre><code>                        if (trial &gt;= num_guess){
                                 cat(&#39;You loss.&#39;)
                         }
                 } else {
