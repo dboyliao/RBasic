@@ -364,7 +364,7 @@ Bob['age']   # reference by name.
 
 ## Matrix
 
-- 語法: **matrix(elements, norw, ncol, by.row = F)**
+- 語法: **matrix(elements, norw, ncol, byrow = F)**
 - 例子: 
 ```{r, results = 'hold'}
 My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2)
@@ -422,10 +422,14 @@ dim(My_matrix1)
 
 - 用法也很簡單，只要輸入以下指令：
 
-```{r, result = 'hide'}
+```{r, result = 'hold'}
 data(iris)
+View(head(iris))
 ```
 
+---
+
+## Factor and Data Frame (Cont.)
 
 1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
 

@@ -463,7 +463,7 @@ Bob["age"]  # reference by name.
 
 ## Matrix
 
-- 語法: **matrix(elements, norw, ncol, by.row = F)**
+- 語法: **matrix(elements, norw, ncol, byrow = F)**
 - 例子: 
 
 ```r
@@ -576,9 +576,13 @@ dim(My_matrix1)
 
 ```r
 data(iris)
+View(head(iris))
 ```
 
 
+---
+
+## Factor and Data Frame (Cont.)
 
 1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
 
