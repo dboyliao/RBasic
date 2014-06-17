@@ -467,22 +467,22 @@ Bob["age"]  # reference by name.
 - 例子: 
 
 ```r
-My_matrix1 <- matrix(c(1, 2, 3, 4), 2, 2)
-My_matrix2 <- matrix(c(1, 2, 3, 4), 2, 2, byrow = T)
+My_matrix1 <- matrix(1:6, 2, 3)
+My_matrix2 <- matrix(1:6, 2, 3, byrow = T)
 My_matrix1
 My_matrix2
 ```
 
 ```
-##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
 ```
 
 ```
-##      [,1] [,2]
-## [1,]    1    2
-## [2,]    3    4
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
 ```
 
 
@@ -523,14 +523,14 @@ My_matrix1 * My_matrix2
 - 例子:
 
 ```r
-my_vec <- matrix(c(1, 2), ncol = 1)  ## 為什麼不用c()?
+my_vec <- matrix(1:3, ncol = 1)  ## 為什麼不用c()?
 My_matrix1 %*% my_vec
 ```
 
 ```
 ##      [,1]
-## [1,]    7
-## [2,]   10
+## [1,]   22
+## [2,]   28
 ```
 
 ```r
