@@ -379,7 +379,7 @@ My_matrix2
 
 - **+, -, *, /**
 - 例子:
-```{r}
+```{r, results='markup'}
 My_matrix1 + My_matrix2
 My_matrix1 * My_matrix2
 ```
@@ -391,7 +391,7 @@ My_matrix1 * My_matrix2
 - **%*%**: Matrix Mulplication
 - **t()**: Transpose
 - 例子:
-```{r, results='asis'}
+```{r, results='markup'}
 my_vec <- matrix(1:3, ncol = 1) ## 為什麼不用c()?
 My_matrix1 %*% my_vec
 My_matrix1 %*% t(my_vec)
