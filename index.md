@@ -1274,20 +1274,7 @@ print(x)
 
 ## Mini project 2: Battleship
 
-    battleship(10)
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    Guess the x:1
-    Guess the y:1
-    [1] "X" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "O" "O" "O" "O" "O"
-    [1] "You miss."
+<img src="assets/img/battle_ship.gif" height="30%" width="30%" />
 
 ---
 
