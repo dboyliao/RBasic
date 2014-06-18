@@ -593,6 +593,18 @@ head(iris5)
 
 ---
 
+## Examples: iris (Cont.)
+
+我們也可以改變欄位的名字。
+
+```{r, results = 'hold'}
+iris6 <- iris
+names(iris6) <- c('SLength', 'SWidth', 'PLength', 'PWidth', 'Sp')
+head(iris6)
+```
+
+---
+
 ## Play With It And You Will Master It!
 
 我們用 cars 資料庫來練習!
