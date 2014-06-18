@@ -636,6 +636,30 @@ Species2
 
 ---
 
+## Factor and Data Frame (Cont.)
+
+1. 可以把 data frame 想像成以 factor 為直欄堆疊起來的資料形態。
+
+2. names(iris) 將可以看到 iris 所有欄位的名字。
+
+3. 我說他是 factor 疊起來的東西你就信了嗎? Try it yourself!
+
+
+```r
+Species2
+```
+
+```
+##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [36] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [71] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3
+## [106] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [141] 3 3 3 3 3 3 3 3 3 3
+```
+
+
+---
+
 ## Useful Function for Data Frame
 
 給定一個名叫 data 的 data frame
@@ -950,7 +974,7 @@ Exercises:
 
 - 依此規則迭代出 10000 點，再把這些點畫成圖。
 
-- 只要用我們有學過的 for 迴圈和矩陣運算就可以做到這件事。
+- 只要用我們有學過的 **for**/**if** 迴圈和矩陣運算就可以做到這件事。
 
 - 你應該會看到:
 
@@ -1139,13 +1163,11 @@ for (i in 1:length(map)) {
 ### `Syntex`
 
 
-```r
-my_function <- function(arg1, arg2, ...) {
-    # do something here
-    
-    # return the result. (optional)
-}
-```
+    my_function <- function(arg1, arg2 = arg2_default, ...){
+            # do something here
+            
+            # return the result. (optional)
+    }
 
 
 > 1. 如果在最後沒有 return() ，R 會自動回傳**最後一次運算**的結果。
@@ -1236,7 +1258,7 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 ```
 
 
--  用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)
+-  用一個 for 迴圈把 map 中的每一個項目 print 出來。
 
 - 定義一個變數 trial 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
 
@@ -1258,11 +1280,11 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 ```
 
 
--  用一個 for 迴圈把 map 中的每一個項目 print 出來。(看看它會長啥樣子吧!)
+-  用一個 for 迴圈把 map 中的每一個項目 print 出來。
 
-- 定義一個變數 tr 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
+- 定義一個變數 trial 並給予初始值 0 。(此變數將用於記錄玩家已經試過幾次)
 
-- 用一個 while 迴圈來判斷 tr 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
+- 用一個 while 迴圈來判斷 trial 是否超過可嘗試次數。如果沒有，更新 map 並顯示適當訊息。若已超過， break 當前迴圈。
 
 - [Template](https://dl.dropboxusercontent.com/u/5487490/RBasic/battleship_template.R)
 
