@@ -379,7 +379,7 @@ My_matrix2
 
 - **+, -, *, /**
 - 例子:
-```{r, results='markup'}
+```{r, results='hold'}
 My_matrix1 + My_matrix2
 My_matrix1 * My_matrix2
 ```
