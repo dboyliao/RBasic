@@ -539,9 +539,15 @@ vec <- c(1:3)
 - 例子:
 
 
+
 ```r
 my_vec <- matrix(1:3, ncol = 1)  ## 為什麼不用c()?
 My_matrix1 %*% my_vec
+My_matrix1 %*% t(my_vec)
+```
+
+```
+## Error: 非調和引數
 ```
 
 ```
@@ -550,13 +556,6 @@ My_matrix1 %*% my_vec
 ## [2,]   28
 ```
 
-```r
-My_matrix1 %*% t(my_vec)
-```
-
-```
-## Error: 非調和引數
-```
 
 
 ---
