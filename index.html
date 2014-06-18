@@ -1195,7 +1195,8 @@ iris5 &lt;- iris[ind5, ]
     <p>我們也可以改變欄位的名字。</p>
 
 <pre><code class="r">iris6 &lt;- iris
-names(iris6) &lt;- c(&quot;SLength&quot;, &quot;SWidth&quot;, &quot;PLength&quot;, &quot;PWidth&quot;, &quot;Sp&quot;)
+colnames(iris6) &lt;- c(&quot;SLength&quot;, &quot;SWidth&quot;, &quot;PLength&quot;, &quot;PWidth&quot;, &quot;Sp&quot;)
+# 也可以用 names(iris6) &lt;- c(&#39;SLength&#39;, &#39;SWidth&#39;, &#39;PLength&#39;, &#39;PWidth&#39;, &#39;Sp&#39;)
 head(iris6)
 </code></pre>
 

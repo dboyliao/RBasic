@@ -931,7 +931,8 @@ head(iris5)
 
 ```r
 iris6 <- iris
-names(iris6) <- c("SLength", "SWidth", "PLength", "PWidth", "Sp")
+colnames(iris6) <- c("SLength", "SWidth", "PLength", "PWidth", "Sp")
+# 也可以用 names(iris6) <- c('SLength', 'SWidth', 'PLength', 'PWidth', 'Sp')
 head(iris6)
 ```
 
