@@ -519,7 +519,6 @@ My_matrix1 * My_matrix2
 - **t()**: Transpose
 - 例子:
 
-
 ```r
 vec <- c(1:3)
 (t(vec))
