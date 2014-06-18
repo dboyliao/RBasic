@@ -1,8 +1,13 @@
 base
 foreign
+gmm
 knitr
+Matrix
+mvtnorm
+sandwich
 shiny
 slidify
 slidifyLibraries
+tmvtnorm
 whisker
 XML

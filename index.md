@@ -520,7 +520,30 @@ My_matrix1 * My_matrix2
 - 例子:
 
 ```r
+vec <- c(1:3)
+(t(vec))
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+```
+
+```r
 my_vec <- matrix(1:3, ncol = 1)  ## 為什麼不用c()?
+```
+
+
+---
+
+## Basic Operation on Matrix (Cont.)
+
+- **%*%**: Matrix Mulplication
+- **t()**: Transpose
+- 例子:
+
+
+```r
 My_matrix1 %*% my_vec
 ```
 
