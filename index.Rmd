@@ -404,7 +404,7 @@ vec <- c(1:3)
 - **t()**: Transpose
 - 例子:
 
-```{r, results='hold'}
+```{r, results='markup'}
 my_vec <- matrix(1:3, ncol = 1) ## 為什麼不用c()?
 My_matrix1 %*% my_vec
 My_matrix1 %*% t(my_vec)
