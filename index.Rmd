@@ -391,6 +391,7 @@ My_matrix1 * My_matrix2
 - **%*%**: Matrix Mulplication
 - **t()**: Transpose
 - 例子:
+
 ```{r, results='hold'}
 vec <- c(1:3)
 (t(vec))
