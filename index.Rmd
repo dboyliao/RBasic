@@ -78,7 +78,7 @@ github:
 ## Before We Start
 It is good to have some handy commands at hands.
 - getwd() / setwd()
-- ? / ??: The helper function. (ex: ?memory.size)
+- ? / ??: The helper function. (ex: ?getwd)
 
 --- .segue bg:navy
 
