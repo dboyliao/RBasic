@@ -77,29 +77,8 @@ github:
 
 ## Before We Start
 It is good to have some handy commands at hands.
-- rm() / ls()
-  - rm(list = ls()): clear all objects in Global Enviroment.
 - getwd() / setwd()
-- memory.size() / memory.limit(): This is for **Windows user only**.
 - ? / ??: The helper function. (ex: ?memory.size)
-- length()
-- class()
-- as- and is- functions. (ex: as.numeric, is.array, as.data.frame, etc)
-
----
-
-## Before We Start
-It is good to have some handy commands at hands.
-- rm() / ls()
-  - rm(list = ls()): clear all objects in Global Enviroment.
-- getwd() / setwd()
-- memory.size() / memory.limit(): This is for **Windows user only**.
-- ? / ??: The helper function. (ex: ?memory.size)
-- length()
-- class()
-- as- and is- functions. (ex: as.numeric, is.array, as.data.frame, etc)
-
-`as 與 is 系列函數真的太多，有興趣的學員可以使用 ? 來查詢相關函式。`
 
 --- .segue bg:navy
 
@@ -128,10 +107,10 @@ It is good to have some handy commands at hands.
 ## 基本賦值語法
 
 ```r
-(x <- "R is easy to learn!")
+(x <- 'R is easy to learn!')
 (y <- 3)
 (z <- pi)
-(k <- 1 + (0+2i))
+(k <- 1 + 2i)
 ```
 
 ```
@@ -149,7 +128,6 @@ It is good to have some handy commands at hands.
 ```
 ## [1] 1+2i
 ```
-
 
 
 ---
@@ -173,11 +151,10 @@ bol1 & bol2
 [1] TRUE
 
 ```r
-bol3 | 4 > 5
+bol3 | 4 > 5 
 ```
 
 [1] FALSE
-
 
 ---
 
@@ -197,17 +174,41 @@ bol3 | 4 > 5
 [1] FALSE
 
 ```r
-"Dboy" == "Dboy"
+'Dboy' == 'Dboy'
 ```
 
 [1] TRUE
 
 ```r
 a <- NA
-a == NA  # 要用 is.na(a) 才會回傳 TRUE。(另外還有 is.nan)
+a == NA     # 要用 is.na(a) 才會回傳 TRUE。(另外還有 is.nan)
 ```
 
 [1] NA
+
+
+---
+
+## Fun Time
+
+### 於 Console 中依續執行下列程式碼。
+
+1. my_vec <- c(1, 2, 5, 90, 37)
+2. ind <- my_vec >= 5
+3. sum(my_vec) 
+
+
+---
+
+## Fun Time
+
+### 於 Console 中依續執行下列程式碼。
+
+1. my_vec <- c(1, 2, 5, 90, 37)
+2. ind <- my_vec >= 5
+3. sum(my_vec) 
+
+`猜猜看答案會是多少? (sum 是 R 中的內建函式，用以求和。)`
 
 
 ---
@@ -244,42 +245,6 @@ Exercise:
    
    3. 其餘狀況，執行 print('Normal')
 
---- 
-
-## Coding Style for If Loop
-
-以下 2 個片段的 code 是等價的，但我們最推薦第一種寫法。
-
-
-```r
-value <- 5
-if (value > 4) {
-    print("The value is greater than 4")
-} else if (2 < value & value <= 4) {
-    print("The value is greater than 2 and no greater than 4.")
-} else {
-    print("The value is no greater than 2.")
-}
-```
-
-
----
-
-## Coding Style for If Loop (Cont.)
-
-    value <- 5
-    {
-            if (value > 4)
-                    print('The value is greater than 4')
-            else if (2 < value & value <= 4)
-                    print('The value is greater than 2 and no greater than 4.')
-            else
-                    print('The value is no greater than 2.')
-    }
-
-> 1. 當然，如果你是 Python 的重度愛好者，要寫成這樣我也不反對啦~(攤手)
-> 2. 我自己是覺得第一種比較好看!(自以為狀態啟動)
-> 3. 特別注意到的是，如果把 { } 去掉，程式會出錯喔!(不一定不能跑，但有可能是錯的)
 
 ---
 
@@ -297,8 +262,8 @@ if (value > 4) {
 ```r
 # 從 1 加到 10
 final_result <- 0
-for (i in 1:10) {
-    final_result <- final_result + i
+for (i in 1:10){
+        final_result <- final_result + i
 }
 (final_result)
 ```
@@ -306,7 +271,6 @@ for (i in 1:10) {
 ```
 ## [1] 55
 ```
-
 
 ---
 
@@ -338,26 +302,22 @@ for (i in 1:10) {
 
 <img src="assets/img/while.gif" height="60%" width="60%" />
 
+---
+
+## While Loop (Cont.)
+
+<img src="assets/img/while.gif" height="60%" width="60%" />
+
+### Exercise
+
+> 1. 那如果要把上述程式改成電腦不斷詢問 "Do you like to code?" 呢?
+> 2. 至於要回答 'yes' or 'no' 才會停....
+
+
 --- .segue bg:navy
 
 ## Vector, Matrix, Factor and Data Frame
 
----
-
-## **Funtime**
-
-```r
-mix_vec1 <- c("a", 2)
-mix_vec2 <- c(2, T)
-```
-
-猜看看結果會如何?
-
-(c()為 R 中建立向量的內建函式)
-
-> 1. [1] "a" "2"
-> 2. [1] 2 1
-> 3. Why??
 
 ---
 
@@ -370,9 +330,8 @@ mix_vec2 <- c(2, T)
 
 ```r
 vec1 <- c(1, 2, 3)
-vec2 <- c("a", "b", "c")
+vec2 <- c('a', 'b', 'c')
 ```
-
 
 - vector 中所有元素都必須是同一種資料屬性。
 
@@ -388,6 +347,20 @@ Bob
 ##    age height weight 
 ##     27    187     80
 ```
+
+---
+
+## **Funtime**
+
+```r
+mix_vec1 <- c('a', 2)
+mix_vec2 <- c(2, T)
+```
+猜看看結果會如何?
+
+> 1. [1] "a" "2"
+> 2. [1] 2 1
+> 3. Why??
 
 
 ---
@@ -437,7 +410,6 @@ vec1[1] + vec2[3]
 ## [1] 7
 ```
 
-
 ---
 
 ## Examples (Cont.)
@@ -445,7 +417,7 @@ vec1[1] + vec2[3]
 
 ```r
 names(Bob)
-Bob["age"]  # reference by name.
+Bob['age']   # reference by name.
 ```
 
 ```
@@ -457,6 +429,125 @@ Bob["age"]  # reference by name.
 ##  27
 ```
 
+---
+
+## Exercise
+
+定義一個向量 me 記錄自己的身高(公分)、體重(公斤)與年齡。
+
+---
+
+## Exercise
+
+定義一個向量 me 記錄自己的身高(公分)、體重(公斤)與年齡。
+
+`如果我還想記錄頭髮的顏色跟電話號碼呢?`
+
+> 1. 把 hair_color='Black' 存進去?
+> 2. 如果電話是 +886 911333966 呢?
+
+
+---
+
+## List
+
+- list 是非常方便好用的資料形態。尤其是需儲存不同類型資料的時候，特別好用。
+
+- Vector, Matrix, Data Frame and List.
+
+- 還記得剛剛提過的優先順序嗎？
+ - c(1, '2')
+ - c(1, T)
+
+- 比較：
+ - list(1, '2')
+ - list(1, T)
+
+---
+
+## List: Examples
+
+
+```r
+Bob <- list(age=27, weight = 80,
+            favorite_data_name = 'iris', favorite_data = iris)
+(age1 <- Bob[1])
+class(age1)
+(age2 <- Bob[[1]])
+class(age2)
+```
+
+```
+## $age
+## [1] 27
+```
+
+```
+## [1] "list"
+```
+
+```
+## [1] 27
+```
+
+```
+## [1] "numeric"
+```
+
+---
+
+## List: Examples (Cont.)
+
+
+```r
+(Age_and_DataName <- Bob[c(1, 3)])
+head(Bob[['favorite_data']])
+```
+
+```
+## $age
+## [1] 27
+## 
+## $favorite_data_name
+## [1] "iris"
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+
+
+---
+
+## Play With List
+
+### `Warmup for Battleship Mini Project: Drawing the Map`
+
+
+```r
+map =list(c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'))
+for (i in 1:length(map)){
+        print(map[[i]])
+}
+```
+
+```
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+## [1] "O" "O" "O" "O" "O"
+```
 
 
 ---
@@ -485,7 +576,6 @@ My_matrix2
 ## [2,]    4    5    6
 ```
 
-
 ---
 
 ## Basic Operations on Matrix
@@ -510,7 +600,6 @@ My_matrix1 * My_matrix2
 ## [2,]    8   20   36
 ```
 
-
 ---
 
 ## Basic Operation on Matrix (Cont.)
@@ -529,7 +618,6 @@ vec <- c(1:3)
 ## [1,]    1    2    3
 ```
 
-
 ---
 
 ## Basic Operation on Matrix (Cont.)
@@ -541,7 +629,7 @@ vec <- c(1:3)
 
 
 ```r
-my_vec <- matrix(1:3, ncol = 1)  # 用 c() 也跑得動。
+my_vec <- matrix(1:3, ncol = 1) # 用 c() 也跑得動。
 My_matrix1 %*% my_vec
 ```
 
@@ -558,7 +646,6 @@ My_matrix1 %*% t(my_vec)
 ```
 ## Error: 非調和引數
 ```
-
 
 
 ---
@@ -586,7 +673,6 @@ My_matrix2[, c(2, 3)]
 ## [2,]    5    6
 ```
 
-
 ---
 
 ## Basic Operation on Matrix (Cont.)
@@ -601,7 +687,6 @@ dim(My_matrix1)
 ```
 ## [1] 2 3
 ```
-
 
 > 1. 記得常常確認矩陣的維度。
 
@@ -634,7 +719,6 @@ head(iris)
 ## 6          5.4         3.9          1.7         0.4  setosa
 ```
 
-
 ---
 
 ## Factor and Data Frame (Cont.)
@@ -647,13 +731,12 @@ head(iris)
 
 
 ```r
-Species <- iris[, "Species"]
-class(Species)  # R 會告訴你他是個 factor。
-Species2 <- as.numeric(Species)  # 直接把 factor 轉成 numeric 向量。
+Species <- iris[, 'Species']
+class(Species)                  # R 會告訴你他是個 factor。
+Species2 <- as.numeric(Species) # 直接把 factor 轉成 numeric 向量。
 Species2
 # 你覺得上面這行 code 會跑出什麼呢? 試試看吧!
 ```
-
 
 ---
 
@@ -677,7 +760,6 @@ Species2
 ## [106] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
 ## [141] 3 3 3 3 3 3 3 3 3 3
 ```
-
 
 ---
 
@@ -705,10 +787,10 @@ Species2
 
 
 ```r
-nrow(iris)  # 顯示 iris 的列數
-ncol(iris)  # 顯示 iris 的行數
-dim(iris)  # 顯示 iris 的行、列數
-names(iris)  # 顯示 iris 的欄位名稱
+nrow(iris)    # 顯示 iris 的列數
+ncol(iris)    # 顯示 iris 的行數
+dim(iris)     # 顯示 iris 的行、列數
+names(iris)   # 顯示 iris 的欄位名稱
 ```
 
 ```
@@ -728,14 +810,13 @@ names(iris)  # 顯示 iris 的欄位名稱
 ## [5] "Species"
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
 
 
 ```r
-head(iris, n = 10)  # 顯示 iris 前 10 筆資料 (預設為 6 筆)
+head(iris, n = 10)    # 顯示 iris 前 10 筆資料 (預設為 6 筆)
 ```
 
 ```
@@ -752,14 +833,13 @@ head(iris, n = 10)  # 顯示 iris 前 10 筆資料 (預設為 6 筆)
 ## 10          4.9         3.1          1.5         0.1  setosa
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
 
 
 ```r
-tail(iris, n = 10)  # 顯示 iris 後 10 筆資料 (預設為 6 筆)
+tail(iris, n = 10)    # 顯示 iris 後 10 筆資料 (預設為 6 筆)
 ```
 
 ```
@@ -776,14 +856,13 @@ tail(iris, n = 10)  # 顯示 iris 後 10 筆資料 (預設為 6 筆)
 ## 150          5.9         3.0          5.1         1.8 virginica
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
 
 
 ```r
-ind1 <- which(iris[, "Sepal.Length"] >= 6.5 & iris[, "Species"] == "virginica")
+ind1 <- which(iris[, 'Sepal.Length'] >= 6.5 & iris[, 'Species'] == 'virginica')
 class(ind1)
 iris1 <- iris[ind1, ]
 head(iris1)
@@ -803,14 +882,13 @@ head(iris1)
 ## 110          7.2         3.6          6.1         2.5 virginica
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
 
 
 ```r
-ind2 <- which(iris[, "Sepal.Length"] < 5.8 & iris[, "Species"] == "setosa")
+ind2 <- which(iris[, 'Sepal.Length'] < 5.8 & iris[, 'Species'] == 'setosa')
 iris2 <- iris[ind2, ]
 head(iris2)
 ```
@@ -824,7 +902,6 @@ head(iris2)
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa
 ```
-
 
 ---
 
@@ -846,7 +923,6 @@ head(iris3)
 ## 110          7.2         3.6          6.1         2.5 virginica
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
@@ -854,7 +930,7 @@ head(iris3)
 
 ```r
 iris4 <- cbind(iris1[1:10, ], iris2[1:10, ])
-head(iris4)  # View(iris4)
+head(iris4)   # View(iris4)
 ```
 
 ```
@@ -874,7 +950,6 @@ head(iris4)  # View(iris4)
 ## 110          5.4         3.9          1.7         0.4  setosa
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
@@ -882,7 +957,7 @@ head(iris4)  # View(iris4)
 
 ```r
 sort(iris[1:30, 2])
-ind5 <- order(iris[, "Sepal.Length"], iris[, "Petal.Length"])
+ind5 <- order(iris[, 'Sepal.Length'], iris[, 'Petal.Length'])
 ind5[1:20]
 class(ind5)
 iris5 <- iris[ind5, ]
@@ -900,7 +975,6 @@ iris5 <- iris[ind5, ]
 ```
 ## [1] "integer"
 ```
-
 
 ---
 
@@ -921,7 +995,6 @@ head(iris5)
 ## 23          4.6         3.6          1.0         0.2  setosa
 ```
 
-
 ---
 
 ## Examples: iris (Cont.)
@@ -931,7 +1004,7 @@ head(iris5)
 
 ```r
 iris6 <- iris
-colnames(iris6) <- c("SLength", "SWidth", "PLength", "PWidth", "Sp")
+colnames(iris6) <- c('SLength', 'SWidth', 'PLength', 'PWidth', 'Sp')
 # 也可以用 names(iris6) <- c('SLength', 'SWidth', 'PLength', 'PWidth', 'Sp')
 head(iris6)
 ```
@@ -946,7 +1019,6 @@ head(iris6)
 ## 6     5.4    3.9     1.7    0.4 setosa
 ```
 
-
 ---
 
 ## Play With It And You Will Master It!
@@ -957,7 +1029,6 @@ head(iris6)
 ```r
 data(cars)
 ```
-
 
 Exercises:
 
@@ -977,7 +1048,6 @@ Exercises:
 ```r
 data(cars)
 ```
-
 
 Exercises:
 
@@ -1069,6 +1139,7 @@ Exercises:
 
 ## Barnsley Fern Fractal 程式範例
 
+    rm(list = ls())
     iter = 10000
     p = runif(iter)
     coord = matrix(c(0, 0), ncol = 1)
@@ -1102,108 +1173,6 @@ Exercises:
 
 ---
 
-## List
-
-- list 是非常方便好用的資料形態。尤其是需儲存不同類型資料的時候，特別好用。
-
-- Vector, Matrix, Data Frame and List.
-
-- 還記得剛剛提過的優先順序嗎？
- - c(1, '2')
- - c(1, T)
-
-- 比較：
- - list(1, '2')
- - list(1, T)
-
----
-
-## List: Examples
-
-
-```r
-Bob <- list(age = 27, weight = 80, favorite_data_name = "iris", favorite_data = iris)
-(age1 <- Bob[1])
-class(age1)
-(age2 <- Bob[[1]])
-class(age2)
-```
-
-```
-## $age
-## [1] 27
-```
-
-```
-## [1] "list"
-```
-
-```
-## [1] 27
-```
-
-```
-## [1] "numeric"
-```
-
-
----
-
-## List: Examples (Cont.)
-
-
-```r
-(Age_and_DataName <- Bob[c(1, 3)])
-head(Bob[["favorite_data"]])
-```
-
-```
-## $age
-## [1] 27
-## 
-## $favorite_data_name
-## [1] "iris"
-```
-
-```
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa
-```
-
-
-
----
-
-## Play With List
-
-### `Warmup for Battleship Mini Project: Drawing the Map`
-
-
-```r
-map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", 
-    "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"))
-for (i in 1:length(map)) {
-    print(map[[i]])
-}
-```
-
-```
-## [1] "O" "O" "O" "O" "O"
-## [1] "O" "O" "O" "O" "O"
-## [1] "O" "O" "O" "O" "O"
-## [1] "O" "O" "O" "O" "O"
-## [1] "O" "O" "O" "O" "O"
-```
-
-
-
----
-
 ## User-Defined Function
 
 ### `Syntex`
@@ -1229,21 +1198,20 @@ for (i in 1:length(map)) {
 
 
 ```r
-my_sum <- function(lst) {
-    final_result <- 0
-    for (num in lst) {
-        final_result <- final_result + num
-    }
-    return(final_result)
+my_sum <- function(lst){
+        final_result <- 0
+        for (num in lst){
+                final_result <- final_result + num
+                }
+        return(final_result)
 }
-numbers <- c(1, 2, 5, 6, 8, 33)
+numbers <- c(1, 2, 5 ,6, 8, 33)
 my_sum(numbers)
 ```
 
 ```
 ## [1] 55
 ```
-
 
 ---
 
@@ -1254,14 +1222,13 @@ my_sum(numbers)
 
 ```r
 x <- 5
-my_fun <- function() {
-    x <- 6
-    return(x + 1)
+my_fun <- function(){
+        x <- 6
+        return( x+1 )
 }
 my_fun()
 print(x)
 ```
-
 
 - 大家來 Try Try See 吧!
 
@@ -1286,10 +1253,12 @@ print(x)
 - 定義一個 list 變數 map 如下
 
 ```r
-map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", 
-    "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"))
+map =list(c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'),
+          c('O', 'O', 'O', 'O', 'O'))
 ```
-
 
 -  用一個 for 迴圈把 map 中的每一個項目 print 出來。
 
@@ -1308,10 +1277,12 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 - 定義一個 list 變數 map 如下
 
 ```r
-map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", 
-    "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"))
+    map =list(c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'),
+              c('O', 'O', 'O', 'O', 'O'))
 ```
-
 
 -  用一個 for 迴圈把 map 中的每一個項目 print 出來。
 
@@ -1328,31 +1299,28 @@ map = list(c("O", "O", "O", "O", "O"), c("O", "O", "O", "O", "O"), c("O", "O",
 - readline(msg)
 
 ```r
-readline("Are you a girl?")  # readline() 會把輸入的資料存成字串。
+readline('Are you a girl?') # readline() 會把輸入的資料存成字串。
 ```
-
 
 - sample.int(x, size)
 
 ```r
-sample.int(5, 1)  # 從 1~5 中隨機抽取 1 個數字。
+sample.int(5, 1)   # 從 1~5 中隨機抽取 1 個數字。
 ```
 
 ```
-## [1] 1
+## [1] 3
 ```
-
 
 - cat(): 簡單版的 print 。
 
 ```r
-cat("I love R!")
+cat('I love R!')
 ```
 
 ```
 ## I love R!
 ```
-
 
 ---
 
