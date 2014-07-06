@@ -626,12 +626,35 @@ head(iris6)
 # read.table 小技巧。
 tmp <- read.table('./cl_info_other.csv', sep = ',',
                  stringsAsFactors = F, header = T, nrows = 1000)
-colClasses <- sapply(DF, class)
+colClasses <- sapply(tmp, class)
 DF <- read.table('./cl_info_other.csv', sep = ',',
                  header = T, colClasses = colClasses)
 ```
 
-Exercises:
+
+---
+
+## Play With It And You Will Master It!
+
+
+```{r, result = 'hide'}
+# read.table 小技巧。
+tmp <- read.table('./cl_info_other.csv', sep = ',',
+                 stringsAsFactors = F, header = T, nrows = 1000)
+colClasses <- sapply(tmp, class)
+DF <- read.table('./cl_info_other.csv', sep = ',',
+                 header = T, colClasses = colClasses)
+```
+
+<img src="assets/img/read_no_colClasses.png", height=80%, width=80%/>
+
+<img src="assets/img/read_colClasses.png", height=80%, width=80%/>
+
+---
+
+## Play With It And You Will Master It!
+
+`Exercises`:
 
 1. 顯示 DF 前 20 筆資料與所有欄位的名稱。
 3. 將 mortgage_cnt < 2053 的資料另外儲存成 banks_below。
@@ -719,6 +742,8 @@ dim(My_matrix1)
 > 1. 記得常常確認矩陣的維度。
 
 > 2. 尤其是在做複雜的模型時，維度是個非常好的指標。
+
+> 3. It's time for mini project!
 
 
 --- .segue bg:navy

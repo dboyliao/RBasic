@@ -1259,12 +1259,44 @@ head(iris6)
     <pre><code class="r"># read.table 小技巧。
 tmp &lt;- read.table(&#39;./cl_info_other.csv&#39;, sep = &#39;,&#39;,
                  stringsAsFactors = F, header = T, nrows = 1000)
-colClasses &lt;- sapply(DF, class)
+colClasses &lt;- sapply(tmp, class)
 DF &lt;- read.table(&#39;./cl_info_other.csv&#39;, sep = &#39;,&#39;,
                  header = T, colClasses = colClasses)
 </code></pre>
 
-<p>Exercises:</p>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-56" style="background:; background-repeat:no-repeat; background-position:center; ">
+  <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
+  <hgroup>
+    <h2>Play With It And You Will Master It!</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># read.table 小技巧。
+tmp &lt;- read.table(&#39;./cl_info_other.csv&#39;, sep = &#39;,&#39;,
+                 stringsAsFactors = F, header = T, nrows = 1000)
+colClasses &lt;- sapply(tmp, class)
+DF &lt;- read.table(&#39;./cl_info_other.csv&#39;, sep = &#39;,&#39;,
+                 header = T, colClasses = colClasses)
+</code></pre>
+
+<p><img src="assets/img/read_no_colClasses.png", height=80%, width=80%/></p>
+
+<p><img src="assets/img/read_colClasses.png", height=80%, width=80%/></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-57" style="background:; background-repeat:no-repeat; background-position:center; ">
+  <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
+  <hgroup>
+    <h2>Play With It And You Will Master It!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><code>Exercises</code>:</p>
 
 <ol>
 <li>顯示 DF 前 20 筆資料與所有欄位的名稱。</li>
@@ -1278,7 +1310,7 @@ DF &lt;- read.table(&#39;./cl_info_other.csv&#39;, sep = &#39;,&#39;,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-56" style="background:green; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-58" style="background:green; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Matrix</h2>
@@ -1289,7 +1321,7 @@ DF &lt;- read.table(&#39;./cl_info_other.csv&#39;, sep = &#39;,&#39;,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-57" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-59" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Matrix</h2>
@@ -1320,7 +1352,7 @@ My_matrix2
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-58" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-60" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Basic Operations on Matrix</h2>
@@ -1349,7 +1381,7 @@ My_matrix1 * My_matrix2
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-59" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-61" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Basic Operation on Matrix (Cont.)</h2>
@@ -1373,7 +1405,7 @@ My_matrix1 * My_matrix2
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-60" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-62" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Basic Operation on Matrix (Cont.)</h2>
@@ -1404,7 +1436,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-61" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-63" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Basic Operation on Matrix (Cont.)</h2>
@@ -1433,7 +1465,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-62" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-64" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Basic Operation on Matrix (Cont.)</h2>
@@ -1453,13 +1485,14 @@ My_matrix1 %*% my_vec
 <ol class = "build incremental">
 <li><p>記得常常確認矩陣的維度。</p></li>
 <li><p>尤其是在做複雜的模型時，維度是個非常好的指標。</p></li>
+<li><p>It&#39;s time for mini project!</p></li>
 </ol>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-63" style="background:navy; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-65" style="background:navy; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Mini Project 1: Barnsley Fern Fractal</h2>
@@ -1470,7 +1503,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-64" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-66" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Mini Project 1: Barnsley Fern Fractal</h2>
@@ -1493,7 +1526,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-65" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-67" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal</h2>
@@ -1511,7 +1544,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-66" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-68" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal: Tips</h2>
@@ -1527,7 +1560,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-67" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-69" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal: Tips</h2>
@@ -1544,7 +1577,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-68" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-70" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal: Tips</h2>
@@ -1562,7 +1595,7 @@ My_matrix1 %*% my_vec
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-69" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-71" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal 程式範例</h2>
@@ -1589,7 +1622,7 @@ for (i in 1:iter) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-70" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-72" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Barnsley Fern Fractal程式範例 (續)</h2>
@@ -1610,7 +1643,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-71" style="background:navy; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-73" style="background:navy; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>User-Defined Function</h2>
@@ -1621,7 +1654,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-72" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-74" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>User-Defined Function</h2>
@@ -1645,7 +1678,7 @@ plot(x = df[, 2], y = df[, 1], plt = c(0, 10, -5, 5), cex = 0.1, asp = 1)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-73" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-75" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>User-Defined Function (Cont.)</h2>
@@ -1673,7 +1706,7 @@ my_sum(numbers)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-74" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-76" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>One Last Thing: Global v.s. Local</h2>
@@ -1700,7 +1733,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-75" style="background:navy; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-77" style="background:navy; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Mini project 2: Battleship</h2>
@@ -1711,7 +1744,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-76" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-78" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Mini project 2: Battleship</h2>
@@ -1723,7 +1756,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-77" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-79" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship: Tips</h2>
@@ -1753,7 +1786,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-78" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-80" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship: Tips</h2>
@@ -1767,7 +1800,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-79" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-81" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Some Function You Might Need</h2>
@@ -1804,7 +1837,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-80" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-82" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship 成品範例</h2>
@@ -1832,7 +1865,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-81" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-83" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship 成品範例 (續)</h2>
@@ -1859,7 +1892,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-82" style="background:; background-repeat:no-repeat; background-position:center; ">
+<slide class="" id="slide-84" style="background:; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Battleship 成品範例 (續)</h2>
@@ -1880,7 +1913,7 @@ print(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-83" style="background:orange; background-repeat:no-repeat; background-position:center; ">
+<slide class="segue" id="slide-85" style="background:orange; background-repeat:no-repeat; background-position:center; ">
   <img src="assets/img/Taiwan-R-logo.png" class="logo fit100" />
   <hgroup>
     <h2>Thanks for Your Attention!</h2>
@@ -2227,31 +2260,31 @@ print(x)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=56 title='Matrix'>
+        data-slide=56 title='Play With It And You Will Master It!'>
          56
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=57 title='Matrix'>
+        data-slide=57 title='Play With It And You Will Master It!'>
          57
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=58 title='Basic Operations on Matrix'>
+        data-slide=58 title='Matrix'>
          58
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=59 title='Basic Operation on Matrix (Cont.)'>
+        data-slide=59 title='Matrix'>
          59
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=60 title='Basic Operation on Matrix (Cont.)'>
+        data-slide=60 title='Basic Operations on Matrix'>
          60
       </a>
     </li>
@@ -2269,31 +2302,31 @@ print(x)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=63 title='Mini Project 1: Barnsley Fern Fractal'>
+        data-slide=63 title='Basic Operation on Matrix (Cont.)'>
          63
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=64 title='Mini Project 1: Barnsley Fern Fractal'>
+        data-slide=64 title='Basic Operation on Matrix (Cont.)'>
          64
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=65 title='Barnsley Fern Fractal'>
+        data-slide=65 title='Mini Project 1: Barnsley Fern Fractal'>
          65
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=66 title='Barnsley Fern Fractal: Tips'>
+        data-slide=66 title='Mini Project 1: Barnsley Fern Fractal'>
          66
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=67 title='Barnsley Fern Fractal: Tips'>
+        data-slide=67 title='Barnsley Fern Fractal'>
          67
       </a>
     </li>
@@ -2305,92 +2338,104 @@ print(x)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=69 title='Barnsley Fern Fractal 程式範例'>
+        data-slide=69 title='Barnsley Fern Fractal: Tips'>
          69
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=70 title='Barnsley Fern Fractal程式範例 (續)'>
+        data-slide=70 title='Barnsley Fern Fractal: Tips'>
          70
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=71 title='User-Defined Function'>
+        data-slide=71 title='Barnsley Fern Fractal 程式範例'>
          71
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=72 title='User-Defined Function'>
+        data-slide=72 title='Barnsley Fern Fractal程式範例 (續)'>
          72
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=73 title='User-Defined Function (Cont.)'>
+        data-slide=73 title='User-Defined Function'>
          73
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=74 title='One Last Thing: Global v.s. Local'>
+        data-slide=74 title='User-Defined Function'>
          74
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=75 title='Mini project 2: Battleship'>
+        data-slide=75 title='User-Defined Function (Cont.)'>
          75
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=76 title='Mini project 2: Battleship'>
+        data-slide=76 title='One Last Thing: Global v.s. Local'>
          76
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=77 title='Battleship: Tips'>
+        data-slide=77 title='Mini project 2: Battleship'>
          77
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=78 title='Battleship: Tips'>
+        data-slide=78 title='Mini project 2: Battleship'>
          78
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=79 title='Some Function You Might Need'>
+        data-slide=79 title='Battleship: Tips'>
          79
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=80 title='Battleship 成品範例'>
+        data-slide=80 title='Battleship: Tips'>
          80
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=81 title='Battleship 成品範例 (續)'>
+        data-slide=81 title='Some Function You Might Need'>
          81
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=82 title='Battleship 成品範例 (續)'>
+        data-slide=82 title='Battleship 成品範例'>
          82
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=83 title='Thanks for Your Attention!'>
+        data-slide=83 title='Battleship 成品範例 (續)'>
          83
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=84 title='Battleship 成品範例 (續)'>
+         84
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=85 title='Thanks for Your Attention!'>
+         85
       </a>
     </li>
   </ul>
