@@ -899,7 +899,7 @@ head(iris6)
 
 `之後會在 ETL 課程再度碰到它，也會學到進階的資料處理技巧。`
 
-到[這裡](https://raw.githubusercontent.com/ntuaha/TWFS/master/db/cl_info_other.csv)下載 檔案。(cl_info_other.csv)
+到[這裡](https://raw.githubusercontent.com/ntuaha/TWFS/master/db/cl_info_other.csv)下載檔案。(cl_info_other.csv)
 
 
 ---
