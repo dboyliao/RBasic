@@ -152,7 +152,7 @@ a == NA     # 要用 is.na(a) 才會回傳 TRUE。(另外還有 is.nan)
 
 1. my_vec <- c(1, 2, 5, 90, 37)
 2. ind <- my_vec >= 5
-3. sum(my_vec) 
+3. sum(ind) 
 
 
 ---
