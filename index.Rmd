@@ -720,8 +720,6 @@ dim(My_matrix1)
 
 > 2. 尤其是在做複雜的模型時，維度是個非常好的指標。
 
-> 3. 譬如說 Neural Network 的 back-propagation。
-
 
 --- .segue bg:navy
 
