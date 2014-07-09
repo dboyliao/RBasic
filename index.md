@@ -1403,6 +1403,46 @@ cat('I love R!')
     }
 
 
+--- .segue bg:navy
+
+## Power up your R!
+
+
+---
+
+## Packages
+
+- R 是一個 open source 的程式語言。
+- 有許多人開發許多功能強大的套件。
+- 使用這些套件可以擴充 R 的功能性。(這個投影片也是用 R 做的)
+- 在這一個章節將介紹如何安裝這些套件。(以接下來 ETL 課程將會用到的 dplyr 套件安裝為例)
+
+
+---
+
+## install.packages
+
+        # 安裝 'dplyr' 套件
+        install.packages('dplyr')
+        # 匯入相關函式 。
+        library('dplyr')
+        
+
+---
+
+## install.packages
+
+        # 安裝 'dplyr' 套件
+        install.packages('dplyr')
+        # 匯入相關函式 。
+        library('dplyr')
+
+`Excercise`
+
+1. 安裝 xts, gdata 套件。
+2. 匯入 xts, gdata 套件。
+
+
 --- .segue bg:orange
 
 ## Thanks for Your Attention!
